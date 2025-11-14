@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom";
 
-import { Search } from "lucide-react"
+import { Search, Heart } from "lucide-react"
 
 import Logo from "../logo/Logo";
 
@@ -46,7 +46,38 @@ function Sidebar() {
                     </div>
 
                     <div className="flex-1 overflow-y-auto">
-                        
+                        {playlists.map((playlist, idx) => (
+                                <div key={idx} className="flex items-center gap-3 mb-3 cursor-pointer hover:bg-gray-900 p-2 rounded">
+                                    {idx === 0 ? (
+                                        <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-blue-500 rounded flex items-center justify-center">
+                                            <Heart className="w-6 h-6 text-white fill-white"/>
+                                        </div>
+                                    ) : (
+                                        <div className="w-12 h-12 bg-gray-800 rounded"/>
+                                    )}
+                                    <div className="flex-1">
+                                        <div className="text-white text-sm">{playlist.name}</div>
+                                        {playlist.songs && (
+                                            <div className="text-gray-400 text-xs flex items-center gap-1">
+                                                <span className="text-green-500">Playlist • {playlist.songs}</span>
+                                            </div>
+                                        )}
+                                        {playlist.game && (
+                                            <div className="text-gray-400 text-xs flex items-center gap-1">
+                                                <span className="text-green-500">Playlist • {playlist.game}</span>
+                                            </div>
+                                        )}
+                                        {playlist.type && (
+                                            <div className="text-gray-400 text-xs">
+                                                Playlist • {playlist.type}
+                                            </div>
+                                        )}
+                                    </div>
+                                </div>
+
+                        ))
+
+                        }
                     </div>
 
                 </>

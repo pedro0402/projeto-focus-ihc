@@ -1,10 +1,11 @@
 import { Heart } from "lucide-react"
 import { AiOutlineAim } from "react-icons/ai";
+import { GiElfHelmet } from "react-icons/gi";
 
 function Home() {
 
     const favoriteCards = [
-        { title: "Trilhas Favoritas", color: "bg-green-500"},
+        { title: "Minhas Soundtracks", color: "bg-green-500"},
         { title: "Clássicos 8-bit", image:"/8bit.jpeg" },
         { title: "MODO: FOCO", image:"/foco.gif"},
         { title: "Chefões Lendários", image:"/bowser.jpeg"},
@@ -33,7 +34,7 @@ function Home() {
     ];
 
     return(
-        <div className="flex-1 overflow-y-auto bg-gradient-to-b from-gray-900 to-black">
+        <div className="flex-1 overflow-y-auto bg-gradient-to-b from-gray-900 to-black min-h-screen">
         <div className="p-6">
             <div className="flex items-center gap-4 mb-6">
             <div className="w-12 h-12 flex items-center justify-center">
@@ -48,8 +49,8 @@ function Home() {
             {favoriteCards.map((card, idx) => (
                 <div key={idx} className="flex items-center gap-4 bg-gradient-to-r from-blue-950 to-blue-900 rounded-lg overflow-hidden max-w-2xl hover:scale-105 transition-transform cursor-pointer shadow-lg">
                         {idx === 0 ? (
-                            <div className="w-12 h-12 bg-green-600 flex items-center justify-center flex-shrink-0">
-                                <Heart className="w-6 h-6 text-white" />
+                            <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-green-500 flex items-center justify-center flex-shrink-0">
+                                <GiElfHelmet className="w-6 h-6 text-white" />
                             </div>
                         ) : (
                             <img src={card.image} alt={card.title} className="w-12 h-12 bg-white flex items-center justify-center flex-shrink-0"/>

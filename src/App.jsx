@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 import LayoutWithSidebar from './layouts/LayoutWithSidebar';
-
 import Home from './pages/Home';
+import MainLayout from './layouts/MainLayout';
 
 
 function App() {
@@ -13,9 +13,11 @@ function App() {
         <Route 
           path='/'
           element={
-          <LayoutWithSidebar>
-            <Home/>
-          </LayoutWithSidebar>
+          <MainLayout>
+            <LayoutWithSidebar>
+              <Home/>
+            </LayoutWithSidebar>
+          </MainLayout>
           }
         />
       </Routes>

@@ -1,15 +1,15 @@
 import { useLocation } from "react-router-dom";
 
-import { Search, Heart } from "lucide-react"
+import { Search } from "lucide-react"
 
-import Logo from "../logo/Logo";
+import { GiElfHelmet } from "react-icons/gi";
 
 function Sidebar() {
 
     const location = useLocation();
 
     const playlists = [
-        { name: "Músicas Curtidas", icon: "💜", songs: "1.078 músicas" },
+        { name: "Minhas Soundtracks", icon: "💜", songs: "1.078 músicas" },
         { name: "It's GOW time", game: "GOW", image: "/god-of-war.jpg" },
         { name: "DOOM", songs: "31 músicas", image: "/doom.jpg" },
         { name: "Ghost of Tsushima", type: "Pedro", image: "/ghost.jpg"},
@@ -21,11 +21,7 @@ function Sidebar() {
     ];
 
     return (
-        <div className="w-64 bg-black p-4 flex flex-col h-screen flex-shrink-0">
-            <div className="mb-8">
-                <Logo/>
-            </div>
-
+        <div className="w-64 bg-black p-4 flex flex-col h-full flex-shrink-0">
             {location.pathname === "/" && (
                 <>
                     <div className="mb-6">
@@ -53,8 +49,8 @@ function Sidebar() {
                             >
                                 {idx === 0 ? (
                                     // Mantém seu caso especial da primeira playlist
-                                    <div className="w-12 h-15 bg-gradient-to-br from-purple-500 to-blue-500 rounded flex items-center justify-center transition-transform duration-300 hover:scale-130">
-                                        <Heart className="w-6 h-6 text-white fill-white"/>
+                                    <div className="w-12 h-16 rounded overflow-hidden bg-gradient-to-br from-blue-500 to-green-500 rounded flex items-center justify-center transition-transform duration-300 hover:scale-130">
+                                        <GiElfHelmet className="w-6 h-6 text-white fill-white"/>
                                     </div>
                                 ) : (
                                     // Aqui você troca o quadrado cinza pela imagem

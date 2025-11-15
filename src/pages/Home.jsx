@@ -1,4 +1,5 @@
 import { Heart } from "lucide-react"
+import { AiOutlineAim } from "react-icons/ai";
 
 function Home() {
 
@@ -35,8 +36,8 @@ function Home() {
         <div className="flex-1 overflow-y-auto bg-gradient-to-b from-gray-900 to-black">
         <div className="p-6">
             <div className="flex items-center gap-4 mb-6">
-            <div className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center">
-                <span className="text-2xl">🎵</span>
+            <div className="w-12 h-12 flex items-center justify-center">
+                <span className="text-4xl text-blue-500"><AiOutlineAim/></span>
             </div>
             <button className="px-6 py-2 bg-blue-600 text-white rounded-full text-sm font-semibold hover:bg-blue-700">
                 SOUNDTRACKS

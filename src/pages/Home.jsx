@@ -1,5 +1,3 @@
-import Sidebar from "../components/sidebar/Sidebar";
-
 function Home() {
 
     const favoriteCards = [
@@ -95,7 +93,7 @@ function Home() {
                 <div className="text-gray-300 text-xs mb-2">Bill Elm, Woody Jackson</div>
                 <div className="flex items-center gap-2">
                     <span className="text-green-500 text-xs">✓</span>
-                    <span className="text-gray-400 text-xs">Franquio</span>
+                    <span className="text-gray-400 text-xs">Franquia</span>
                 </div>
                 </div>
             </div>

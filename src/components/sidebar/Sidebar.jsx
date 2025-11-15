@@ -59,12 +59,12 @@ function Sidebar() {
                                         <div className="text-white text-sm">{playlist.name}</div>
                                         {playlist.songs && (
                                             <div className="text-gray-400 text-xs flex items-center gap-1">
-                                                <span className="text-green-500">Playlist • {playlist.songs}</span>
+                                                <span className="text-green-500">📌</span> Playlist • {playlist.songs}
                                             </div>
                                         )}
                                         {playlist.game && (
                                             <div className="text-gray-400 text-xs flex items-center gap-1">
-                                                <span className="text-green-500">Playlist • {playlist.game}</span>
+                                                <span className="text-green-500">📌</span> Playlist • {playlist.game}
                                             </div>
                                         )}
                                         {playlist.type && (
@@ -74,12 +74,8 @@ function Sidebar() {
                                         )}
                                     </div>
                                 </div>
-
-                        ))
-
-                        }
+                        ))}
                     </div>
-
                 </>
             )}
         </div>

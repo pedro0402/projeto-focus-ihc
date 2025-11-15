@@ -21,7 +21,7 @@ function Sidebar() {
     ];
 
     return (
-        <div className="w-64 bg-black p-4 flex flex-col h-full">
+        <div className="w-64 bg-black p-4 flex flex-col h-screen flex-shrink-0">
             <div className="mb-8">
                 <Logo/>
             </div>

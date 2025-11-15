@@ -12,12 +12,13 @@ function Home() {
     ];
 
     const genreGames = [
-        { title: "Jogos de Exploração", image: "/api/placeholder/160/160" },
-        { title: "Jogos de Aventura", image: "/api/placeholder/160/160" },
-        { title: "Jogos de Heróis", image: "/api/placeholder/160/160" },
-        { title: "Assassin's Creed Collection", image: "/api/placeholder/160/160" },
-        { title: "Souls Like", image: "/api/placeholder/160/160" },
-        { title: "Jogos de Tiro", image: "/api/placeholder/160/160" }
+        { title: "Jogos de Exploração", image: "/exploration.jpg" },
+        { title: "Jogos de Aventura", image: "/hunter.png" },
+        { title: "Jogos de Heróis", image: "/avengers.jpg" },
+        { title: "Assassin's Creed Collection", image: "/assasins.jpg" },
+        { title: "Souls Like", image: "/souls.jpg" },
+        { title: "Jogos de Tiro", image: "/cod.jpg" },
+        { title: "Jogos de Corrida", image: "/need4speed.jpg" }
     ];
     
       const mainSoundtracks = [
@@ -56,9 +57,15 @@ function Home() {
             </h2>
             <div className="flex gap-4 overflow-x-auto pb-4">
                 {genreGames.map((game, idx) => (
-                <div key={idx} className="min-w-[160px] cursor-pointer group">
-                    <div className="w-40 h-40 bg-gray-800 rounded mb-2 group-hover:opacity-80" />
-                    <div className="text-white text-sm font-medium">{game.title}</div>
+                <div key={idx} className="px-1 py-2 min-w-[160px] cursor-pointer group transition-transform duration-300 hover:scale-105">
+                    <div className="w-40 h-56 rounded overflow-hidden">
+                        <img 
+                            src={game.image} 
+                            alt={game.title} 
+                            className="w-full h-full object-cover"
+                        />
+                    </div>
+                    <div className="text-white text-sm font-medium ">{game.title}</div>
                 </div>
                 ))}
             </div>

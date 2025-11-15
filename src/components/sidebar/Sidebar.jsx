@@ -58,11 +58,11 @@ function Sidebar() {
                                     </div>
                                 ) : (
                                     // Aqui você troca o quadrado cinza pela imagem
-                                    <div className="w-12 h-15 rounded overflow-hidden transition-transform duration-300 hover:scale-130">
+                                    <div className="w-12 h-15 rounded overflow-hidden transition-transform duration-300 hover:scale-125">
                                         <img 
                                             src={playlist.image} 
                                             alt={playlist.name} 
-                                            className="w-full h-20% object-cover"
+                                            className="w-full h-20 object-cover"
                                         />
                                     </div>
                                 )}

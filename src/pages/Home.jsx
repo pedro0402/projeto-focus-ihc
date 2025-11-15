@@ -99,23 +99,6 @@ function Home() {
                 ))}
             </div>
             </div>
-
-            <div className="fixed bottom-20 right-8 bg-blue-900 rounded-lg p-4 max-w-sm">
-            <div className="flex items-start gap-3">
-                <div className="w-16 h-16 bg-gray-800 rounded" />
-                <div className="flex-1">
-                <div className="text-white text-sm font-semibold mb-1">Exodus in America</div>
-                <div className="text-gray-300 text-xs mb-2">Bill Elm, Woody Jackson</div>
-                <div className="flex items-center gap-2">
-                    <span className="text-green-500 text-xs">✓</span>
-                    <span className="text-gray-400 text-xs">Franquia</span>
-                </div>
-                </div>
-            </div>
-            <div className="mt-2">
-                <div className="text-white text-xl font-bold">Red Dead Redemption</div>
-            </div>
-            </div>
         </div>
         </div>
     )

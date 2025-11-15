@@ -2,15 +2,15 @@ import Sidebar from "../components/sidebar/Sidebar";
 
 function Home() {
 
-      const favoriteCards = [
-          { title: "Clássicos 8-bit" },
-          { title: "MODO: FOCO" },
-          { title: "Trilhas Favoritas", color: "bg-green-500" },
-          { title: "Chefões Lendários" },
-          { title: "It's GOW time!" },
-          { title: "NÃO CHORA NEWBIE" },
-          { title: "METAL SLUG PLAYLIST" },
-          { title: "LOTI" }
+    const favoriteCards = [
+        { title: "Clássicos 8-bit" },
+        { title: "MODO: FOCO" },
+        { title: "Trilhas Favoritas", color: "bg-green-500" },
+        { title: "Chefões Lendários" },
+        { title: "It's GOW time!" },
+        { title: "NÃO CHORA NEWBIE" },
+        { title: "METAL SLUG PLAYLIST" },
+        { title: "LOTI" }
     ];
 
     const genreGames = [

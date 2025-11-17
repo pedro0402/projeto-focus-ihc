@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import { AiOutlineAim } from "react-icons/ai";
 import { GiElfHelmet } from "react-icons/gi";
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import LinkButton from "../layouts/LinkButton";
 
 function Home() {
 
@@ -65,9 +66,7 @@ function Home() {
             <div className="w-12 h-12 flex items-center justify-center">
                 <span className="text-4xl text-blue-500"><AiOutlineAim/></span>
             </div>
-            <button className="px-6 py-2 bg-blue-600 text-white rounded-full text-sm font-semibold hover:bg-blue-700">
-                SOUNDTRACKS
-            </button>
+            <LinkButton to='/soundtracks' text="SOUNDTRACKS"/>
             </div>
 
             <div className="grid grid-cols-4 gap-4 mb-8">

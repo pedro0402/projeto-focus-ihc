@@ -100,8 +100,6 @@ function Home() {
                                     ${index === currentIndex ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}
                                 `}
                             >
-                                <div className="absolute inset-0 backdrop-blur-md rounded-xl z-0"></div>
-
                                 <div className="flex flex-col items-center cursor-pointer transition-transform duration-300 hover:scale-105 z-10">
                                     <img 
                                         src={game.image} 

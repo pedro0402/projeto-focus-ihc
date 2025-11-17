@@ -1,5 +1,5 @@
 function Soundtracks() {
-    return <h1 className="bg-red-500">SOUNDTRACKS PAGE</h1>
+    return <h1 className="text-2xl font-bold mb-4">SOUNDTRACKS PAGE</h1>
 }
 
 export default Soundtracks

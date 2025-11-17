@@ -93,25 +93,28 @@ function Home() {
                         
                         {genreGames.map((game, index) => (
                             <div 
-                                key={index} 
-                                className={`absolute inset-0 flex flex-col items-center transition-opacity duration-700 ${
-                                    index === currentIndex ? 'opacity-100' : 'opacity-0'
-                                }`}
+                                key={index}
+                                className={`
+                                    absolute top-0 left-1/2 -translate-x-1/2 
+                                    flex flex-col items-center 
+                                    transition-opacity duration-300
+                                    ${index === currentIndex ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}
+                                `}
                             >
-                                {/* Fundo escuro */}
-                                <div className="absolute inset-0  backdrop-blur-md rounded-xl"></div>
+                                <div className="absolute inset-0 backdrop-blur-md rounded-xl z-0"></div>
 
-                                {/* Imagem */}
-                                <img 
-                                    src={game.image} 
-                                    alt={game.title}
-                                    className="w-40 h-56 object-cover rounded-xl z-10 mt-4"
-                                />
+                                <div className="flex flex-col items-center cursor-pointer transition-transform duration-300 hover:scale-105 z-10">
+                                    <img 
+                                        src={game.image} 
+                                        alt={game.title}
+                                        className="w-40 h-56 object-cover rounded-xl mt-4"
+                                    />
 
-                                {/* Título abaixo da imagem */}
-                                <h2 className="text-xl md:text-2xl font-bold text-white mt-4 z-10 text-center">
-                                    {game.title}
-                                </h2>
+                                    <h2 className="text-xl md:text-2xl font-bold text-white mt-4 text-center">
+                                        {game.title}
+                                    </h2>
+
+                                </div>
                             </div>
                         ))}
 

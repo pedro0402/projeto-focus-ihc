@@ -1,8 +1,11 @@
-import { Heart } from "lucide-react"
+import { useState, useEffect } from "react"
 import { AiOutlineAim } from "react-icons/ai";
 import { GiElfHelmet } from "react-icons/gi";
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 function Home() {
+
+    const [currentIndex, setCurrentIndex] = useState(0);
 
     const favoriteCards = [
         { title: "Minhas Soundtracks", color: "bg-green-500"},
@@ -33,6 +36,28 @@ function Home() {
         { title: "Expedition 33", image: "/expedition.jpg" }
     ];
 
+    useEffect(() => {
+        const timer = setInterval(() =>  {
+            setCurrentIndex((prevIndex) =>
+                prevIndex === genreGames.length - 1 ? 0 : prevIndex + 1
+            );
+        }, 4000);
+
+        return () => clearInterval(timer);
+    }, [genreGames.length]);
+
+    const goToNext  = () => {
+        setCurrentIndex(currentIndex === genreGames.length - 1 ? 0 : currentIndex + 1);
+    }
+
+    const goToPrevious = () => {
+        setCurrentIndex(currentIndex === 0 ? genreGames.length - 1 : currentIndex - 1);
+    }
+
+    const goToSlide = (index) => {
+        setCurrentIndex(index)
+    }
+
     return(
         <div className="flex-1 overflow-y-auto bg-gradient-to-b from-gray-900 to-black min-h-screen">
         <div className="p-6">
@@ -60,38 +85,65 @@ function Home() {
             ))}
             </div>
 
-            <div className="mb-8">
-            <h2 className="text-green-500 text-2xl font-bold mb-4">
-                Soundtracks baseada em seus últimos gêneros jogados
-            </h2>
-            <div className="flex gap-4 overflow-x-auto pb-4">
-                {genreGames.map((game, idx) => (
-                <div key={idx} className="px-1 py-2 min-w-[160px] cursor-pointer group transition-transform duration-300 hover:scale-105">
-                    <div className="w-40 h-56 rounded overflow-hidden">
-                        <img 
-                            src={game.image} 
-                            alt={game.title} 
-                            className="w-full h-full object-cover"
-                        />
-                    </div>
-                    <div className="text-white text-sm font-medium ">{game.title}</div>
-                </div>
-                ))}
-            </div>
-            </div>
+            <div className="relative w-full h-[360px] overflow-visible rounded-xl">
+                <h2 className="text-green-500 text-2xl font-bold mb-4 text-center">
+                    Soundtracks baseada em seus últimos gêneros jogados
+                </h2>
+                    <div className="relative w-full max-w-3xl h-[300px] mx-auto flex items-center justify-center">
+                        
+                        {genreGames.map((game, index) => (
+                            <div 
+                                key={index} 
+                                className={`absolute inset-0 flex flex-col items-center transition-opacity duration-700 ${
+                                    index === currentIndex ? 'opacity-100' : 'opacity-0'
+                                }`}
+                            >
+                                {/* Fundo escuro */}
+                                <div className="absolute inset-0  backdrop-blur-md rounded-xl"></div>
 
-            <div className="mb-8">
-            <h2 className="text-green-500 text-2xl font-bold mb-4">
+                                {/* Imagem */}
+                                <img 
+                                    src={game.image} 
+                                    alt={game.title}
+                                    className="w-40 h-56 object-cover rounded-xl z-10 mt-4"
+                                />
+
+                                {/* Título abaixo da imagem */}
+                                <h2 className="text-xl md:text-2xl font-bold text-white mt-4 z-10 text-center">
+                                    {game.title}
+                                </h2>
+                            </div>
+                        ))}
+
+                        {/* Botões */}
+                        <button
+                            onClick={goToPrevious}
+                            className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition backdrop-blur-sm"
+                        >
+                            <ChevronLeft size={28} />
+                        </button>
+
+                        <button
+                            onClick={goToNext}
+                            className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition backdrop-blur-sm"
+                        >
+                            <ChevronRight size={28} />
+                        </button>
+                    </div>
+                </div>
+
+            <div className="py-6 mb-8">
+            <h2 className="text-green-500 text-2xl text-center font-bold mb-4">
                 Principais Soundtracks do Momento
             </h2>
-            <div className="flex gap-4 overflow-x-auto pb-4">
+            <div className="flex items-center justify-center gap-4 overflow-x-auto pb-4">
                 {mainSoundtracks.map((soundtrack, idx) => (
                 <div key={idx} className="px-1.5 py-2 min-w-[160px] cursor-pointer group transition-transform duration-300 hover:scale-105">
                     <div className="w-40 h-56 rounded overflow-hidden">
                         <img 
                             src={soundtrack.image} 
                             alt={soundtrack.title} 
-                            className="w-full h-full object-cover"
+                            className="w-40 h-56 object-cover rounded-xl z-10 mt-4"
                         />
                     </div>
                     <div className="text-white text-sm font-medium ">{soundtrack.title}</div>

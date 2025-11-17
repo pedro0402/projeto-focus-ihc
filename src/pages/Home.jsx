@@ -118,14 +118,14 @@ function Home() {
                         {/* Botões */}
                         <button
                             onClick={goToPrevious}
-                            className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition backdrop-blur-sm"
+                            className="absolute left-4 top-1/2 cursor-pointer -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition backdrop-blur-sm"
                         >
                             <ChevronLeft size={28} />
                         </button>
 
                         <button
                             onClick={goToNext}
-                            className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition backdrop-blur-sm"
+                            className="absolute right-4 top-1/2 cursor-pointer -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition backdrop-blur-sm"
                         >
                             <ChevronRight size={28} />
                         </button>

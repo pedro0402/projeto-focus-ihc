@@ -143,7 +143,7 @@ function Home() {
                         <img 
                             src={soundtrack.image} 
                             alt={soundtrack.title} 
-                            className="w-40 h-56 object-cover rounded-xl z-10 mt-4"
+                            className="w-full h-full object-cover rounded-xl z-10 mt-4"
                         />
                     </div>
                     <div className="text-white text-sm font-medium ">{soundtrack.title}</div>

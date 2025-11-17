@@ -10,14 +10,14 @@ function Sidebar() {
 
     const playlists = [
         { name: "Minhas Soundtracks", icon: "💜", songs: "1.078 músicas" },
-        { name: "It's GOW time", game: "GOW", image: "/god-of-war.jpg" },
+        { name: "It's GOW time", game: "God Of War", image: "/god-of-war.jpg" },
         { name: "DOOM", songs: "31 músicas", image: "/doom.jpg" },
-        { name: "Ghost of Tsushima", type: "Pedro", image: "/ghost.jpg"},
-        { name: "Batman Arkham City", songs: "19 músicas", image: "/batman.jpeg"},
-        { name: "Expedition 33", type: "Pedro", image: "/expedition.jpg"},
-        { name: "Tony Hawk's Pro Skater 2", type: "Pedro", image: "/tony.jpg"},
-        { name: "Marvel's Spider Man", type: "Pedro", image: "/marvel.jpg"},
-        { name: "EA FC 26", type: "Pedro", image: "/fifa.jpg"}
+        { name: "Ghost of Tsushima", game: "Ghost of Tsushima", image: "/ghost.jpg"},
+        { name: "Batman Arkham City", game: "Batman Arkham City", image: "/batman.jpeg"},
+        { name: "Expedition 33", game: "Expedition 33", image: "/expedition.jpg"},
+        { name: "Tony Hawk's Pro Skater 2", game: "Tony Hawk's Pro Skater 2", image: "/tony.jpg"},
+        { name: "Marvel's Spider Man", game: "Marvel's Spider Man", image: "/marvel.jpg"},
+        { name: "EA FC 26", game: "EA FC 26", image: "/fifa.jpg"}
     ];
 
     return (
@@ -41,20 +41,21 @@ function Sidebar() {
                         </div>
                     </div>
 
-                    <div className="flex-1 overflow-y-auto">
+                    <div className="flex-1 overflow-y-auto grid grid-cols-2 gap-4">
                         {playlists.map((playlist, idx) => (
                             <div 
                                 key={idx} 
-                                className="flex items-center gap-3 mb-3 cursor-pointer hover:bg-gray-900 p-2 rounded"
+                                className="cursor-pointer bg-gray-900/40 hover:bg-gray-900 rounded-lg p-3 
+                                    flex flex-col items-center text-center transition-transform duration-300 hover:scale-105"
                             >
                                 {idx === 0 ? (
                                     // Mantém seu caso especial da primeira playlist
-                                    <div className="w-12 h-16 rounded overflow-hidden bg-gradient-to-br from-blue-500 to-green-500 rounded flex items-center justify-center transition-transform duration-300 hover:scale-130">
-                                        <GiElfHelmet className="w-6 h-6 text-white fill-white"/>
+                                    <div className="w-20 h-20 rounded overflow-hidden bg-gradient-to-br from-blue-500 to-green-500 flex items-center justify-center mb-2">
+                                        <GiElfHelmet className="w-10 h-10 text-white"/>
                                     </div>
                                 ) : (
                                     // Aqui você troca o quadrado cinza pela imagem
-                                    <div className="w-12 h-15 rounded overflow-hidden transition-transform duration-300 hover:scale-125">
+                                    <div className="w-12 h-20 rounded overflow-hidden mb-2">
                                         <img 
                                             src={playlist.image} 
                                             alt={playlist.name} 
@@ -69,13 +70,13 @@ function Sidebar() {
 
                                     {playlist.songs && (
                                         <div className="text-gray-400 text-xs flex items-center gap-1">
-                                            <span className="text-green-500">📌</span> Playlist • {playlist.songs}
+                                            <span className="text-green-500"></span> Playlist • {playlist.songs}
                                         </div>
                                     )}
 
                                     {playlist.game && (
                                         <div className="text-gray-400 text-xs flex items-center gap-1">
-                                            <span className="text-green-500">📌</span> Playlist • {playlist.game}
+                                            <span className="text-green-500"></span> Playlist • {playlist.game}
                                         </div>
                                     )}
 

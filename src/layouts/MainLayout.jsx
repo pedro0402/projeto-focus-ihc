@@ -1,3 +1,4 @@
+import BottomBar from "../components/bottombar/BottomBar";
 import Topbar from "../components/topbar/Topbar";
 
 export default function({ children }) {
@@ -7,6 +8,7 @@ export default function({ children }) {
             <div className="flex flex-1 overflow-hidden">
                 {children}
             </div>
+            <BottomBar/>
         </div>
     )
 }

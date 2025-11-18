@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import LayoutWithoutSidebar from './layouts/LayoutWithoutSidebar';
 import BottomBar from "./components/bottombar/BottomBar"
 import LayoutWithSidebar from './layouts/LayoutWithSidebar';
+import LayoutWithoutSidebar from './layouts/LayoutWithoutSidebar';
 import Home from './pages/Home';
 import Soundtracks from './pages/Soundtracks'
 import MainLayout from './layouts/MainLayout';
@@ -18,7 +18,6 @@ function App() {
           <MainLayout>
             <LayoutWithSidebar>
               <Home/>
-            <BottomBar/>
             </LayoutWithSidebar>
           </MainLayout>
           }
@@ -26,7 +25,7 @@ function App() {
         <Route path='/soundtracks' element={
           <MainLayout>
             <LayoutWithoutSidebar>
-               <Soundtracks/>
+              <Soundtracks/>
             </LayoutWithoutSidebar>
           </MainLayout>
           }/>

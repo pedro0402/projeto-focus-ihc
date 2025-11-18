@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-
+import BottomBar from "./components/bottombar/BottomBar"
 import LayoutWithSidebar from './layouts/LayoutWithSidebar';
 import Home from './pages/Home';
 import Soundtracks from './pages/Soundtracks'
@@ -17,6 +17,7 @@ function App() {
           <MainLayout>
             <LayoutWithSidebar>
               <Home/>
+              <BottomBar/>
             </LayoutWithSidebar>
           </MainLayout>
           }

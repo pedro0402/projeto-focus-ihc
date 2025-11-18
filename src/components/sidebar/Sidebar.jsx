@@ -25,12 +25,8 @@ function Sidebar() {
             {location.pathname === "/" && (
                 <>
                     <div className="mb-6">
-                        <div className="text-green-500  font-semibold mb-3">Base do Jogador</div>
-                        <div className="flex gap-4 text-xs text-gray-400 mb-4"> 
-                            <button className="text-white border-b-2 border-white pb-1">Playlists</button>
-                            <button>Gêneros</button>
-                            <button>Franquias</button>
-                        </div>
+                        <div className="text-green-500  font-semibold mb-3">Últimas Tocadas </div>
+                        
                         <div className="relative mb-4">
                             <Search className="absolute left-3 top-2.5 w-4 h-4 text-gray-400"/>
                             <input

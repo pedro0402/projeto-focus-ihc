@@ -1,8 +1,12 @@
 import { Home, Search } from "lucide-react"
 import Logo from "../logo/Logo"
+import { useState } from "react";
 import LinkButton from "../../layouts/LinkButton";
 
 function Topbar() {
+
+    const [open, setOpen] = useState(false)
+
     return (
         <div className="w-full bg-black border-b border-gray-800 px-6 py-3">
             <div className="flex items-center justify-between max-w-screen-2xl mx-auto">
@@ -55,7 +59,9 @@ function Topbar() {
                 </div>
 
                 <div className="flex items-center">
-                    <div className="w-9 h-9 rounded-full bg-gray-700 overflow-hidden cursor-pointer hover:ring-2 hover:ring-gray-600 transition-all">
+                    <div className="w-9 h-9 rounded-full bg-gray-700 overflow-hidden cursor-pointer hover:ring-2 hover:ring-gray-600 transition-all"
+                        onClick={() => setOpen(true)}
+                    >
                         <img 
                             src="/user.jpg" 
                             alt="User avatar"
@@ -64,6 +70,23 @@ function Topbar() {
                     </div>
                 </div>
             </div>
+            {open && (
+            <div 
+                className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50"
+                onClick={() => setOpen(false)} // Fecha ao clicar no fundo
+            >
+                <div 
+                    className="p-2"
+                    onClick={(e) => e.stopPropagation()} // Evita fechar quando clicar na foto
+                >
+                    <img 
+                        src="/user.jpg" 
+                        alt="User avatar large"
+                        className="w-50 h-50 rounded-full"
+                    />
+                </div>
+            </div>
+        )}
         </div>
   );
 }

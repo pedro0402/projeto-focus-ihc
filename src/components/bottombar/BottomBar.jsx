@@ -100,7 +100,7 @@ function BottomBar({ currentTrack, isPlaying, setIsPlaying }) {
 
                     {/* Info */}
                     <div className="min-w-0 flex-1">
-                        <h3 className="text-cyan-400 font-bold text-sm truncate">{currentTrack?.tittle || "Selecione uma música"}</h3>
+                        <h3 className="text-cyan-400 font-bold text-sm truncate">{currentTrack?.title || "Selecione uma música"}</h3>
                         <p className="text-cyan-300/60 text-xs truncate">{currentTrack?.artist || ""}</p>
                     </div>
 

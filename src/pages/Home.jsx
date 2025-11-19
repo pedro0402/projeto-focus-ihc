@@ -3,6 +3,7 @@ import { AiOutlineAim } from "react-icons/ai";
 import { GiElfHelmet } from "react-icons/gi";
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import LinkButton from "../layouts/LinkButton";
+import { gamesData } from "../data/gamesData";
 
 function Home() {
 
@@ -57,6 +58,13 @@ function Home() {
 
     const goToSlide = (index) => {
         setCurrentIndex(index)
+    }
+
+    function slugify(title) {
+    return title
+        .toLowerCase()
+        .replace(/[^a-z0-9\s-]/g, "") // remove apóstrofo
+        .replace(/\s+/g, "-");
     }
 
     return(
@@ -138,16 +146,22 @@ function Home() {
             </h2>
             <div className="flex items-center justify-center gap-4 overflow-x-auto pb-4">
                 {mainSoundtracks.map((soundtrack, idx) => (
-                <div key={idx} className="px-1.5 py-2 min-w-[160px] cursor-pointer group transition-transform duration-300 hover:scale-105">
-                    <div className="w-40 h-56 rounded overflow-hidden">
-                        <img 
-                            src={soundtrack.image} 
-                            alt={soundtrack.title} 
-                            className="w-full h-full object-cover rounded-xl z-10 mt-4"
-                        />
+                <LinkButton 
+                    key={idx}
+                    to={`/game/${slugify(soundtrack.title.toLowerCase().replace(/\s+/g, "-"))}`}
+                    className="px-1.5 py-2 min-w-[160px] cursor-pointer group transition-transform duration-300 hover:scale-105"
+                >
+                    <div key={idx} className="px-1.5 py-2 min-w-[160px] cursor-pointer group transition-transform duration-300 hover:scale-105">
+                        <div className="w-40 h-56 rounded overflow-hidden">
+                            <img 
+                                src={soundtrack.image} 
+                                alt={soundtrack.title} 
+                                className="w-full h-full object-cover rounded-xl z-10 mt-4"
+                            />
+                        </div>
+                        <div className="text-white text-sm font-medium ">{soundtrack.title}</div>
                     </div>
-                    <div className="text-white text-sm font-medium ">{soundtrack.title}</div>
-                </div>
+                </LinkButton>
                 ))}
             </div>
             </div>

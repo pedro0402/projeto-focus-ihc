@@ -8,7 +8,6 @@ export default function({ children }) {
             <div className="flex flex-1 overflow-hidden">
                 {children}
             </div>
-            <BottomBar/>
         </div>
     )
 }

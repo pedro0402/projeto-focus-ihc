@@ -4,7 +4,7 @@ import TrackItem from "./TrackItem";
 export default function TrackList({ 
   tracks, 
   currentTrack, 
-  setCurrentTrack, 
+  playTrack,
   isPlaying,
   likedTracks,
   setLikedTracks
@@ -33,7 +33,7 @@ export default function TrackList({
             isCurrent={currentTrack === index}
             isPlaying={isPlaying}
             liked={likedTracks.has(index)}
-            onClick={() => setCurrentTrack(index)}
+            onClick={() => playTrack(index)}
             toggleLike={toggleLike}
           />
         ))}

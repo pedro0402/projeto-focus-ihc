@@ -193,17 +193,11 @@ function BottomBar() {
 
                 {/* DIREITA - Volume */}
                 <div className="flex items-center gap-4 min-w-0 flex-1 justify-end">
-                    
-                    <button className="text-cyan-400/60 hover:text-cyan-400 transition-colors">
-                        <List className="w-5 h-5" />
-                    </button>
-
                     {/* Volume */}
                     <div className="flex items-center gap-2">
                         <button className="text-cyan-400 hover:text-cyan-300 transition-colors">
                             <Volume2 className="w-5 h-5" />
                         </button>
-
                         <div className="w-24 group">
                             <div 
                                 className="relative h-1 bg-gray-800 rounded-full overflow-hidden cursor-pointer"
@@ -222,14 +216,6 @@ function BottomBar() {
                                 </div>
                             </div>
                         </div>
-                    </div>
-
-                    <button className="text-cyan-400/60 hover:text-cyan-400 transition-colors">
-                        <Maximize2 className="w-5 h-5" />
-                    </button>
-
-                    <div className="flex items-center gap-2 ml-2">
-                        <div className="w-1.5 h-1.5 bg-cyan-400 rounded-full animate-pulse"></div>
                     </div>
                 </div>
 

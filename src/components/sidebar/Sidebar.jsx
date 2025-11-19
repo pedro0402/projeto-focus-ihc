@@ -33,7 +33,6 @@ function Sidebar() {
 
     return (
         <div className="w-64 bg-black p-4 flex flex-col h-full flex-shrink-0">
-            {location.pathname === "/" && (
                 <>
                     <div className="mb-6">
                         <div className="text-green-500  font-semibold mb-3">Últimas Tocadas </div>
@@ -107,7 +106,6 @@ function Sidebar() {
                     </div>
 
                 </>
-            )}
         </div>
     )
 }

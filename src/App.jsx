@@ -5,6 +5,7 @@ import LayoutWithoutSidebar from './layouts/LayoutWithoutSidebar';
 import Home from './pages/Home';
 import Soundtracks from './pages/Soundtracks'
 import MainLayout from './layouts/MainLayout';
+import GameSoundtrack from './pages/GameSoundtrack';
 
 
 function App() {
@@ -20,8 +21,7 @@ function App() {
               <Home/>
             </LayoutWithSidebar>
           </MainLayout>
-          }
-        />
+          }/>
         <Route path='/soundtracks' element={
           <MainLayout>
             <LayoutWithoutSidebar>
@@ -29,6 +29,13 @@ function App() {
             </LayoutWithoutSidebar>
           </MainLayout>
           }/>
+        <Route path='/game/:gameId' element={
+          <MainLayout>
+            <LayoutWithSidebar>
+              <GameSoundtrack/>
+            </LayoutWithSidebar>
+          </MainLayout>
+        }/>
       </Routes>
     </Router>
   ) 

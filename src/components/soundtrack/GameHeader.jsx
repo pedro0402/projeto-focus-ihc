@@ -35,11 +35,11 @@ export default function GameHeader({ game, dominantColor }) {
             </h1>
 
             <p className="text-gray-300 max-w-xl mb-3">
-              Uma coleção completa das músicas icônicas deste jogo.
+              {game.description}
             </p>
 
             <div className="text-gray-400 text-sm flex items-center gap-3">
-              <span className="font-semibold text-white">Game OST</span>
+              <span className="font-semibold text-white">{game.company}</span>
               <span>•</span>
               <span>{game.tracks.length} songs</span>
             </div>

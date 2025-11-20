@@ -5,8 +5,8 @@ import Home from './pages/Home';
 import Soundtracks from './pages/Soundtracks'
 import MainLayout from './layouts/MainLayout';
 import GameSoundtrack from './pages/GameSoundtrack';
+import FavoritesPage from './pages/FavoritesPage'; // 👈 Importar a nova página
 import { PlayerProvider } from './context/PlayerContext';
-
 
 function App() {
   return (
@@ -33,6 +33,14 @@ function App() {
             <MainLayout>
               <LayoutWithSidebar>
                 <GameSoundtrack/>
+              </LayoutWithSidebar>
+            </MainLayout>
+          }/>
+          {/* 👇 Adicionar a nova rota */}
+          <Route path='/favoritos' element={
+            <MainLayout>
+              <LayoutWithSidebar>
+                <FavoritesPage/>
               </LayoutWithSidebar>
             </MainLayout>
           }/>

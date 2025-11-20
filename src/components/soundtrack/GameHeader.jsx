@@ -29,7 +29,7 @@ export default function GameHeader({ game, dominantColor }) {
           {/* Texto */}
           <div>
             <p className="text-green-400 text-sm font-bold tracking-wider mb-1">
-              OFFICIAL GAME SOUNDTRACK
+              
             </p>
 
             <h1 className="text-5xl font-black mb-2">

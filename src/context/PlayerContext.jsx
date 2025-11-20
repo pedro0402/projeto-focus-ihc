@@ -1,23 +1,23 @@
-import { createContext, useContext, useState, useRef } from "react";
+import { createContext, useContext, useState, useRef, useEffect } from "react";
 
 const PlayerContext = createContext();
 
 export function PlayerProvider({ children }) {
-  const audioRef = useRef(new Audio());
-  
   const [currentTrack, setCurrentTrack] = useState(null);
   const [isPlaying, setIsPlaying] = useState(false);
 
   function playTrack(track) {
-    audioRef.current.src = track.url;
-    audioRef.current.play();
     setCurrentTrack(track);
     setIsPlaying(true);
   }
 
   function pauseTrack() {
-    audioRef.current.pause();
     setIsPlaying(false);
+  }
+
+  function togglePlay() {
+    if (!currentTrack) return;
+    setIsPlaying(!isPlaying);
   }
 
   return (
@@ -25,7 +25,8 @@ export function PlayerProvider({ children }) {
       currentTrack,
       isPlaying,
       playTrack,
-      pauseTrack
+      pauseTrack,
+      togglePlay,
     }}>
       {children}
     </PlayerContext.Provider>

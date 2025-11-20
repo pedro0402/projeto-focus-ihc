@@ -8,11 +8,10 @@ import TrackList from "../components/soundtrack/TrackList";
 import { getDominantColor } from "../utils/getDominantColors";
 
 export default function GameSoundtrackPage() {
-
   const { gameId } = useParams();
   const game = gamesData.find((g) => g.slug === gameId);
 
-  const { playTrack } = usePlayer();
+  const { currentTrack, isPlaying, playTrack } = usePlayer();
 
   const [dominantColor, setDominantColor] = useState("rgb(0,0,0)");
   const [likedTracks, setLikedTracks] = useState(new Set());
@@ -26,11 +25,17 @@ export default function GameSoundtrackPage() {
     return <h1 className="text-white p-6">Jogo não encontrado.</h1>;
   }
 
+  // Encontra o índice da track atual
+  const currentTrackIndex = currentTrack 
+    ? game.tracks.findIndex(track => 
+        track.title === currentTrack.title && 
+        track.artist === currentTrack.artist
+      )
+    : -1;
+
   return (
     <div className="min-h-screen bg-black text-white flex flex-col">
-
       <div className="flex-1 overflow-y-auto pb-32">
-        
         <GameHeader 
           game={game}
           dominantColor={dominantColor}
@@ -38,7 +43,7 @@ export default function GameSoundtrackPage() {
         
         <TrackList
           tracks={game.tracks}
-          currentTrack={null} 
+          currentTrack={currentTrackIndex}
           playTrack={(index) =>
             playTrack({
               ...game.tracks[index],
@@ -46,12 +51,11 @@ export default function GameSoundtrackPage() {
               gameTitle: game.title
             })
           }
+          isPlaying={isPlaying}
           likedTracks={likedTracks}
           setLikedTracks={setLikedTracks}
         />
-
       </div>
-
     </div>
   );
 }

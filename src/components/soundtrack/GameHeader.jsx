@@ -1,3 +1,5 @@
+import LinkButton from "../../layouts/LinkButton";
+
 export default function GameHeader({ game, dominantColor }) {
   return (
     <div
@@ -39,7 +41,11 @@ export default function GameHeader({ game, dominantColor }) {
             </p>
 
             <div className="text-gray-400 text-sm flex items-center gap-3">
-              <span className="font-semibold text-white">{game.company}</span>
+              <span className="font-semibold text-white cursor-pointer group transition-transform duration-300 hover:scale-105">
+                <LinkButton to={game.companyUrl} target="_blank">
+                  {game.company}
+                </LinkButton>
+              </span>
               <span>•</span>
               <span>{game.tracks.length} songs</span>
             </div>

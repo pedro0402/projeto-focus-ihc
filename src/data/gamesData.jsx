@@ -8,16 +8,16 @@ export const gamesData = [
       {
         id: 1,
         title: "Outlaws From The West",
-        url: "/musics/exodus.mp3",
+        url: "/musics/OutlawsFromTheWest.mp3",
         artist: "Rockstar Games",
-        duration: "3:45"
+        duration: "4:56"
       },
       {
         id: 2,
         title: "American Venom",
-        url: "/musics/exodus.mp3",
+        url: "/musics/AmericanVenom.mp3",
         artist: "Rockstar Games",
-        duration: "4:02"
+        duration: "2:52"
       }
     ]
   },
@@ -31,16 +31,16 @@ export const gamesData = [
       {
         id: 1,
         title: "V",
-        url: "/musicas/cp/1.mp3",
+        url: "/musics/V.mp3",
         artist: "CD Projekt RED",
-        duration: "3:22"
+        duration: "2:34"
       },
       {
         id: 2,
         title: "The Rebel Path",
-        url: "/musicas/cp/2.mp3",
+        url: "/musics/TheRebelPath.mp3",
         artist: "CD Projekt RED",
-        duration: "4:15"
+        duration: "4:11"
       }
     ]
   },
@@ -54,9 +54,16 @@ export const gamesData = [
       {
         id: 1,
         title: "Arkham Knight (Main Theme)",
-        url: "/musics/exodus.mp3",
+        url: "/musics/Batman_ Arkham Knight Soundtrack - Main Theme.mp3",
         artist: "Warner Bros",
-        duration: "2:48"
+        duration: "2:23"
+      },
+      {
+        id: 2,
+        title: "Lost Souls",
+        url: "/musics/Batman_ Arkham Knight Soundtrack - Lost Soul.mp3",
+        artist: "Warner Bros",
+        duration: "1:49"
       }
     ]
   },
@@ -70,9 +77,16 @@ export const gamesData = [
       {
         id: 1,
         title: "You",
-        url: "/musics/exodus.mp3",
-        artist: "Various Artists",
-        duration: "2:55"
+        url: "/musics/You - Bad Religion.mp3",
+        artist: "Bad Religion",
+        duration: "2:05"
+      },
+      {
+        id: 2,
+        title: "Evil Eye",
+        url: "/musics/Evil Eye - Fu Manchu.mp3",
+        artist: "Fu Manchu",
+        duration: "3:31"
       }
     ]
   },
@@ -85,10 +99,17 @@ export const gamesData = [
     tracks: [
       {
         id: 1,
-        title: "Ghost of Tsushima",
-        url: "/musics/exodus.mp3",
-        artist: "Sucker Punch",
-        duration: "4:30"
+        title: "Jin Sakai",
+        url: "/musics/Jin Sakai.mp3",
+        artist: "Illan Eshkeri",
+        duration: "2:51"
+      },
+      {
+        id: 2,
+        title: "Lord Shimura",
+        url: "/musics/Lord Shimura.mp3",
+        artist: "Illan Eshkeri",
+        duration: "2.51"
       }
     ]
   },
@@ -101,10 +122,10 @@ export const gamesData = [
     tracks: [
       {
         id: 1,
-        title: "Expedition",
-        url: "/musics/exodus.mp3",
-        artist: "Focus Entertainment",
-        duration: "3:10"
+        title: "Lumière",
+        url: "/musics/Lumière.mp3",
+        artist: "Lorien Testard",
+        duration: "3:42"
       }
     ]
   }

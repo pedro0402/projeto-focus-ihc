@@ -15,7 +15,7 @@ export default function GameSoundtrackPage() {
 
   const [dominantColor, setDominantColor] = useState("rgb(0,0,0)");
   const [likedTracks, setLikedTracks] = useState(new Set());
-
+  
   useEffect(() => {
     if (!game) return;
     getDominantColor(game.image).then(setDominantColor);
@@ -33,6 +33,20 @@ export default function GameSoundtrackPage() {
       )
     : -1;
 
+    const enrichedTracks = game.tracks.map(track => ({
+      ...track,
+      image: game.image,          // Imagem do jogo
+      gameTitle: game.title,      // Título do jogo
+      gameSlug: game.slug         // Slug do jogo (opcional)
+    }));
+
+    const currentEnrichedTrackIndex = currentTrack 
+        ? enrichedTracks.findIndex(track => 
+            track.title === currentTrack.title && 
+            track.artist === currentTrack.artist
+          )
+        : -1;
+
   return (
     <div className="min-h-screen bg-black text-white flex flex-col">
       <div className="flex-1 overflow-y-auto pb-32">
@@ -42,15 +56,15 @@ export default function GameSoundtrackPage() {
         />
         
         <TrackList
-          tracks={game.tracks}
-          currentTrack={currentTrackIndex}
+          tracks={enrichedTracks}
+          currentTrack={currentEnrichedTrackIndex}
           playTrack={(index) =>
-            playTrack({
-              ...game.tracks[index],
-              image: game.image,
-              gameTitle: game.title
-            })
-          }
+          playTrack(
+            enrichedTracks[index],
+            enrichedTracks,
+            index
+          )
+        }
           isPlaying={isPlaying}
           likedTracks={likedTracks}
           setLikedTracks={setLikedTracks}

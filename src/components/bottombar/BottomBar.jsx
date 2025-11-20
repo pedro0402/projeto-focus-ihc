@@ -1,11 +1,14 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { SkipBack, Pause, Play, SkipForward, Volume2 } from 'lucide-react';
+import { usePlayer } from '../../context/PlayerContext';
 
 function BottomBar({ currentTrack, isPlaying, setIsPlaying }) {
 
     const [progress, setProgress] = useState(0);
     const [volume, setVolume] = useState(75);
     const [isLiked, setIsLiked] = useState(false);
+
+    const { nextTrack } = usePlayer();
 
     const audioRef = useRef(null);
 
@@ -163,16 +166,7 @@ function BottomBar({ currentTrack, isPlaying, setIsPlaying }) {
 
                         <button 
                             className="text-cyan-400 hover:text-cyan-300 transition-all hover:scale-110"
-                            onClick={() => {
-                                const audio = audioRef.current;
-                                if (!audio) return;
-
-                                audio.pause();
-                                audio.currentTime = 0;
-                                setIsPlaying(false);
-                                setProgress(0);
-                                alert("Próxima música ainda não implementada!");
-                            }}
+                            onClick={nextTrack}
                         >
                             <SkipForward className="w-5 h-5" strokeWidth={2} />
                         </button>

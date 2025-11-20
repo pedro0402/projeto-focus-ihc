@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
 
-function LinkButton({to, children, className}) {
+function LinkButton({to, children, className, target}) {
     return (
-        <Link className={className} to={to}>
+        <Link className={className} to={to} target={target}>
             {children}
         </Link>
     )

@@ -6,7 +6,6 @@ export default function LayoutWithoutSidebar({ children }) {
             <main className="flex-1 overflow-y-auto">
                 {children}
             </main>
-            <BottomBar/>
         </div>
     )
 }

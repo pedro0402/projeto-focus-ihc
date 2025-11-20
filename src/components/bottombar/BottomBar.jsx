@@ -1,9 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { SkipBack, Pause, Play, SkipForward, Volume2, Shuffle, Repeat, Heart, List, Maximize2 } from 'lucide-react';
 
-function BottomBar() {
+function BottomBar({ currentTrack, isPlaying, setIsPlaying }) {
 
-    const [isPlaying, setIsPlaying] = useState(false);
     const [progress, setProgress] = useState(0);
     const [volume, setVolume] = useState(75);
     const [isLiked, setIsLiked] = useState(false);
@@ -101,8 +100,8 @@ function BottomBar() {
 
                     {/* Info */}
                     <div className="min-w-0 flex-1">
-                        <h3 className="text-cyan-400 font-bold text-sm truncate">EXODUS IN AMERICA</h3>
-                        <p className="text-cyan-300/60 text-xs truncate">Bill Elm, Woody Jackson</p>
+                        <h3 className="text-cyan-400 font-bold text-sm truncate">{currentTrack?.title || "Selecione uma música"}</h3>
+                        <p className="text-cyan-300/60 text-xs truncate">{currentTrack?.artist || ""}</p>
                     </div>
 
                 </div>
@@ -224,7 +223,7 @@ function BottomBar() {
             {/* ELEMENTO DE ÁUDIO */}
             <audio
                 ref={audioRef}
-                src="/musics/exodus.mp3"
+                src={currentTrack?.url || ""}
                 preload="metadata"
             />
         </div>

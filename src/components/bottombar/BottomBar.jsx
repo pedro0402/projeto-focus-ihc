@@ -133,7 +133,7 @@ function BottomBar({ currentTrack, isPlaying, setIsPlaying }) {
                     <div className="flex items-center gap-4">
 
                         <button 
-                            className="text-cyan-400 hover:text-cyan-300 transition-all hover:scale-110"
+                            className="text-cyan-400 hover:text-cyan-300 transition-all hover:scale-110 cursor-pointer"
                             onClick={() => {
                                 const audio = audioRef.current;
                                 if (!audio) return;
@@ -148,7 +148,7 @@ function BottomBar({ currentTrack, isPlaying, setIsPlaying }) {
                         <button 
                             onClick={() => setIsPlaying(!isPlaying)}
                             disabled={!currentTrack}
-                            className="relative group"
+                            className="relative group cursor-pointer"
                         >
                             <div className="absolute inset-0 border border-cyan-400/50 rounded-full group-hover:scale-110 transition-transform"></div>
                             <div className={`relative w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-all group-hover:scale-105 ${
@@ -165,7 +165,7 @@ function BottomBar({ currentTrack, isPlaying, setIsPlaying }) {
                         </button>
 
                         <button 
-                            className="text-cyan-400 hover:text-cyan-300 transition-all hover:scale-110"
+                            className="text-cyan-400 hover:text-cyan-300 transition-all hover:scale-110 cursor-pointer"
                             onClick={nextTrack}
                         >
                             <SkipForward className="w-5 h-5" strokeWidth={2} />

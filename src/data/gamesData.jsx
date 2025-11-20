@@ -5,6 +5,7 @@ export const gamesData = [
     description: "Red Dead Redemption 2 traz uma trilha sonora cinematográfica que mistura elementos do Velho Oeste com tons emocionais e imersivos. Suas músicas acompanham a jornada de Arthur Morgan e intensificam cada momento da aventura, desde cenas de ação até momentos mais contemplativos no vasto mundo aberto do jogo.",
     image: "/reddead.jpg",
     company: "Rockstar Games",
+    companyUrl: "https://www.rockstargames.com/",
     headerImage: "/reddead.jpg",
     tracks: [
       {
@@ -29,6 +30,7 @@ export const gamesData = [
     title: "Cyberpunk 2077",
     description: "Cyberpunk 2077 apresenta uma trilha sonora futurista e intensa, marcada por synths pesados, batidas eletrônicas e atmosferas neon. As músicas acompanham perfeitamente a energia caótica de Night City, reforçando cada momento de exploração, combate e narrativa dentro do universo cyberpunk.",
     company: "CD Projekt RED",
+    companyUrl: "https://www.cdprojektred.com/en",
     image: "/cyber.jpg",
     headerImage: "/cyber.jpg",
     tracks: [
@@ -54,6 +56,7 @@ export const gamesData = [
     title: "Batman Arkham Knight",
     description: "Batman: Arkham Knight traz uma trilha sonora sombria e épica, combinando orquestração intensa com tons heroicos. As músicas acompanham o clima tenso de Gotham City e elevam cada combate, investigação e momento dramático da jornada do Cavaleiro das Trevas.",
     company: "Rocksteady Studios",
+    companyUrl: "https://rocksteadyltd.com/",
     image: "/batark.jpg",
     headerImage: "/batark.jpg",
     tracks: [
@@ -79,6 +82,7 @@ export const gamesData = [
     title: "Tony Hawk's Pro Skater 2",
     description: "Tony Hawk’s Pro Skater 2 é marcado por uma trilha sonora vibrante que mistura punk rock, hip-hop e estilos alternativos. As músicas são energéticas e definem perfeitamente o ritmo acelerado do jogo, impulsionando cada manobra e sessão de skate com ainda mais adrenalina.",
     company: "Neversoft",
+    companyUrl: "https://www.activision.com/",
     image: "/tony.jpg",
     headerImage: "/tony.jpg",
     tracks: [
@@ -104,6 +108,7 @@ export const gamesData = [
     title: "Ghost of Tsushima",
     description: "Ghost of Tsushima apresenta uma trilha sonora atmosférica e emocional, inspirada na música tradicional japonesa. As composições acompanham a jornada de Jin Sakai, criando tensão nos confrontos e profundidade nos momentos de contemplação, reforçando toda a beleza e a intensidade da ilha de Tsushima.",
     company: "Sucker Punch Productions",
+    companyUrl: "https://www.suckerpunch.com/",
     image: "/ghost.jpg",
     headerImage: "/ghost.jpg",
     tracks: [
@@ -129,6 +134,7 @@ export const gamesData = [
     title: "Expedition 33",
     description: "Expedition 33 apresenta uma trilha sonora emocional e envolvente, misturando tons orquestrais e temas fantásticos para acompanhar a jornada dos protagonistas em um mundo misterioso e ameaçado. As músicas reforçam tanto o clima de aventura quanto os momentos de tensão, criando uma experiência imersiva a cada passo da expedição.",
     company: "Sandfall Interactive",
+    companyUrl: "https://www.sandfall.co/",
     image: "/expedition.jpg",
     headerImage: "/expedition.jpg",
     tracks: [

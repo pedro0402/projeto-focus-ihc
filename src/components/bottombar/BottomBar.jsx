@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { SkipBack, Pause, Play, SkipForward, Volume2, Shuffle, Repeat, Heart, List, Maximize2 } from 'lucide-react';
+import { SkipBack, Pause, Play, SkipForward, Volume2 } from 'lucide-react';
 
 function BottomBar({ currentTrack, isPlaying, setIsPlaying }) {
 
@@ -9,17 +9,27 @@ function BottomBar({ currentTrack, isPlaying, setIsPlaying }) {
 
     const audioRef = useRef(null);
 
+    // ---- INICIALIZAR ÁUDIO ----
+    useEffect(() => {
+        if (currentTrack && audioRef.current) {
+            audioRef.current.src = currentTrack.url;
+            if (isPlaying) {
+                audioRef.current.play();
+            }
+        }
+    }, [currentTrack]);
+
     // ---- PLAY / PAUSE ----
     useEffect(() => {
         const audio = audioRef.current;
-        if (!audio) return;
+        if (!audio || !currentTrack) return;
 
         if (isPlaying) {
             audio.play();
         } else {
             audio.pause();
         }
-    }, [isPlaying]);
+    }, [isPlaying, currentTrack]);
 
     // ---- PROGRESSO AUTOMÁTICO ----
     useEffect(() => {
@@ -37,19 +47,20 @@ function BottomBar({ currentTrack, isPlaying, setIsPlaying }) {
         return () => audio.removeEventListener("timeupdate", updateProgress);
     }, []);
 
+    // ---- QUANDO A MÚSICA TERMINAR ----
     useEffect(() => {
         const audio = audioRef.current;
         if (!audio) return;
 
         const handleEnded = () => {
-            setIsPlaying(false);   // troca o botão para PLAY
-            setProgress(0);        // barra volta para 0%
-            audio.currentTime = 0; // reseta o áudio
+            setIsPlaying(false);
+            setProgress(0);
+            audio.currentTime = 0;
         };
 
         audio.addEventListener("ended", handleEnded);
         return () => audio.removeEventListener("ended", handleEnded);
-    }, []);
+    }, [setIsPlaying]);
 
     // ---- VOLUME ----
     useEffect(() => {
@@ -65,20 +76,18 @@ function BottomBar({ currentTrack, isPlaying, setIsPlaying }) {
         const percent = Math.min(Math.max((clickX / bar.width) * 100, 0), 100);
 
         const audio = audioRef.current;
-        audio.currentTime = (audio.duration * percent) / 100;
-
-        setProgress(percent);
+        if (audio && audio.duration) {
+            audio.currentTime = (audio.duration * percent) / 100;
+            setProgress(percent);
+        }
     };
 
     const formatTime = (time) => {
         if (isNaN(time)) return "0:00";
-
         const minutes = Math.floor(time / 60);
         const seconds = Math.floor(time % 60);
-
         return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
     };
-
 
     return (
         <div className="w-full bg-gradient-to-r from-gray-900 via-black to-gray-900 border-t-2 border-cyan-500/30 px-4 py-3 relative">
@@ -90,18 +99,26 @@ function BottomBar({ currentTrack, isPlaying, setIsPlaying }) {
                 {/* ESQUERDA - Info da música */}
                 <div className="flex items-center gap-4 min-w-0 flex-1">
 
-                    {/* Capinha */}
+                    {/* Capinha - AGORA DINÂMICA */}
                     <div className="relative group flex-shrink-0">
                         <div className="absolute -inset-0.5 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-lg blur opacity-50 group-hover:opacity-100 transition duration-300"></div>
-                        <div className="relative w-16 h-16 bg-gradient-to-br from-red-600 to-orange-600 rounded-lg overflow-hidden">
-                            <img src="/reddead.jpg" alt="Album" className="w-full h-25 object-cover" />
+                        <div className="relative w-10 h-16 bg-gradient-to-br from-red-600 to-orange-600 rounded-lg overflow-hidden">
+                            <img 
+                                src={currentTrack?.image || "/reddead.jpg"} 
+                                alt={currentTrack?.title || "Album"} 
+                                className="w-full h-full object-cover" 
+                            />
                         </div>
                     </div>
 
-                    {/* Info */}
+                    {/* Info - AGORA DINÂMICA */}
                     <div className="min-w-0 flex-1">
-                        <h3 className="text-cyan-400 font-bold text-sm truncate">{currentTrack?.title || "Selecione uma música"}</h3>
-                        <p className="text-cyan-300/60 text-xs truncate">{currentTrack?.artist || ""}</p>
+                        <h3 className="text-cyan-400 font-bold text-sm truncate">
+                            {currentTrack?.title || "Selecione uma música"}
+                        </h3>
+                        <p className="text-cyan-300/60 text-xs truncate">
+                            {currentTrack?.artist || ""}
+                        </p>
                     </div>
 
                 </div>
@@ -112,13 +129,13 @@ function BottomBar({ currentTrack, isPlaying, setIsPlaying }) {
                     {/* Botões */}
                     <div className="flex items-center gap-4">
 
-                        <button className="text-cyan-400 hover:text-cyan-300 transition-all hover:scale-110"
+                        <button 
+                            className="text-cyan-400 hover:text-cyan-300 transition-all hover:scale-110"
                             onClick={() => {
                                 const audio = audioRef.current;
                                 if (!audio) return;
-
                                 audio.currentTime = 0;
-                                setProgress(0)
+                                setProgress(0);
                             }}
                         >
                             <SkipBack className="w-5 h-5" strokeWidth={2} />
@@ -127,11 +144,16 @@ function BottomBar({ currentTrack, isPlaying, setIsPlaying }) {
                         {/* PLAY / PAUSE */}
                         <button 
                             onClick={() => setIsPlaying(!isPlaying)}
+                            disabled={!currentTrack}
                             className="relative group"
                         >
                             <div className="absolute inset-0 border border-cyan-400/50 rounded-full group-hover:scale-110 transition-transform"></div>
-                            <div className="relative w-10 h-10 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-full flex items-center justify-center shadow-lg shadow-cyan-500/50 group-hover:shadow-cyan-400/70 transition-all group-hover:scale-105">
-                                {isPlaying ? (
+                            <div className={`relative w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-all group-hover:scale-105 ${
+                                currentTrack 
+                                    ? "bg-gradient-to-br from-cyan-500 to-blue-600 shadow-cyan-500/50 group-hover:shadow-cyan-400/70" 
+                                    : "bg-gray-600 cursor-not-allowed"
+                            }`}>
+                                {isPlaying && currentTrack ? (
                                     <Pause className="w-5 h-5 text-white fill-white" strokeWidth={2} />
                                 ) : (
                                     <Play className="w-5 h-5 text-white fill-white ml-0.5" strokeWidth={2} />
@@ -139,7 +161,8 @@ function BottomBar({ currentTrack, isPlaying, setIsPlaying }) {
                             </div>
                         </button>
 
-                        <button className="text-cyan-400 hover:text-cyan-300 transition-all hover:scale-110"
+                        <button 
+                            className="text-cyan-400 hover:text-cyan-300 transition-all hover:scale-110"
                             onClick={() => {
                                 const audio = audioRef.current;
                                 if (!audio) return;
@@ -148,8 +171,6 @@ function BottomBar({ currentTrack, isPlaying, setIsPlaying }) {
                                 audio.currentTime = 0;
                                 setIsPlaying(false);
                                 setProgress(0);
-
-                                // mais tarde você vai trocar isso por "setCurrentTrack(index + 1)"
                                 alert("Próxima música ainda não implementada!");
                             }}
                         >
@@ -166,7 +187,6 @@ function BottomBar({ currentTrack, isPlaying, setIsPlaying }) {
                         </span>
 
                         <div className="flex-1 group">
-
                             <div 
                                 className="relative h-1 bg-gray-800 rounded-full overflow-hidden cursor-pointer"
                                 onClick={handleSeek}
@@ -179,7 +199,6 @@ function BottomBar({ currentTrack, isPlaying, setIsPlaying }) {
                                     <div className="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 bg-cyan-300 rounded-full shadow-lg shadow-cyan-500/50 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                                 </div>
                             </div>
-
                         </div>
 
                         <span className="text-cyan-400 text-xs font-mono">
@@ -192,7 +211,6 @@ function BottomBar({ currentTrack, isPlaying, setIsPlaying }) {
 
                 {/* DIREITA - Volume */}
                 <div className="flex items-center gap-4 min-w-0 flex-1 justify-end">
-                    {/* Volume */}
                     <div className="flex items-center gap-2">
                         <button className="text-cyan-400 hover:text-cyan-300 transition-colors">
                             <Volume2 className="w-5 h-5" />

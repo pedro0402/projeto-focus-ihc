@@ -60,6 +60,13 @@ export default function GameSoundtrackPage() {
           currentTrack={currentEnrichedTrackIndex}
           playTrack={(index) =>
           playTrack(
+              {
+              ...game.tracks[index],
+              image: game.image,
+              gameTitle: game.title,
+              gameSlug: game.slug,
+              type: 'game' // ← ESPECIFICAR TIPO
+            },
             enrichedTracks[index],
             enrichedTracks,
             index

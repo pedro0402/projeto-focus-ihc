@@ -47,7 +47,7 @@ export default function PlaylistPage() {
     <div className="min-h-screen bg-black text-white flex flex-col">
       <div className="flex-1 overflow-y-auto pb-32">
         <div
-          className="relative h-60 overflow-hidden"
+          className="relative h-96 overflow-hidden"
           style={{ background: `linear-gradient(to bottom, ${dominantColor}, black)` }}
         >
           <div className="absolute inset-0 bg-black/40"></div>
@@ -56,8 +56,8 @@ export default function PlaylistPage() {
             <div className="flex items-end gap-10">
               
               <div className="relative group">
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-purple-700 blur-2xl opacity-40"></div>
-                <div className="relative w-35 h-50 rounded-xl overflow-hidden  border-4 border-white/20">
+                <div className="absolute inset-0 bg-gradient-to-br from-green-500 to-blue-700 blur-2xl opacity-40 group-hover:opacity-60"></div>
+                <div className="relative w-48 h-80 rounded-xl overflow-hidden shadow-2xl border-4 border-blue-400/20">
                   <img 
                     src={playlist.image}
                     alt={playlist.title}
@@ -92,9 +92,13 @@ export default function PlaylistPage() {
           currentTrack={currentTrackIndex}
           playTrack={(index) =>
             playTrack(
-              enrichedTracks[index],
-              enrichedTracks,
-              index
+                {
+                ...enrichedTracks[index],
+                type: 'playlist', // ← ESPECIFICAR TIPO
+                playlistSlug: playlist.id // ← ID da playlist
+                },
+                enrichedTracks,
+                index
             )
           }
           isPlaying={isPlaying}

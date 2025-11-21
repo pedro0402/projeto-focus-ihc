@@ -18,38 +18,35 @@ export default function GameSoundtrackPage() {
   
   useEffect(() => {
     if (!game) return;
+    // Garante que a cor dominante seja redefinida ao navegar
+    setDominantColor("rgb(0,0,0)"); 
     getDominantColor(game.image).then(setDominantColor);
   }, [game]);
 
   if (!game) {
-    return <h1 className="text-white p-6">Jogo não encontrado.</h1>;
+    // Adicionado padding responsivo
+    return <h1 className="text-white p-4 md:p-6">Jogo não encontrado.</h1>;
   }
 
-  // Encontra o índice da track atual
-  const currentTrackIndex = currentTrack 
-    ? game.tracks.findIndex(track => 
-        track.title === currentTrack.title && 
-        track.artist === currentTrack.artist
-      )
-    : -1;
+  // Lógica para encontrar o índice da track atual (mantida)
+  const enrichedTracks = game.tracks.map(track => ({
+    ...track,
+    image: game.image,
+    gameTitle: game.title,
+    gameSlug: game.slug
+  }));
 
-    const enrichedTracks = game.tracks.map(track => ({
-      ...track,
-      image: game.image,          // Imagem do jogo
-      gameTitle: game.title,      // Título do jogo
-      gameSlug: game.slug         // Slug do jogo (opcional)
-    }));
-
-    const currentEnrichedTrackIndex = currentTrack 
-        ? enrichedTracks.findIndex(track => 
-            track.title === currentTrack.title && 
-            track.artist === currentTrack.artist
-          )
-        : -1;
+  const currentEnrichedTrackIndex = currentTrack 
+      ? enrichedTracks.findIndex(track => 
+          track.title === currentTrack.title && 
+          track.artist === currentTrack.artist
+        )
+      : -1;
 
   return (
     <div className="min-h-screen bg-black text-white flex flex-col">
-      <div className="flex-1 overflow-y-auto pb-32">
+      {/* Adicionado padding na base para o player fixo */}
+      <div className="flex-1 overflow-y-auto pb-24 md:pb-32">
         <GameHeader 
           game={game}
           dominantColor={dominantColor}
@@ -57,20 +54,17 @@ export default function GameSoundtrackPage() {
         
         <TrackList
           tracks={enrichedTracks}
-          currentTrack={currentEnrichedTrackIndex}
+          currentTrackIndex={currentEnrichedTrackIndex} // Renomeado para clareza
           playTrack={(index) =>
-          playTrack(
+            playTrack(
               {
-              ...game.tracks[index],
-              image: game.image,
-              gameTitle: game.title,
-              gameSlug: game.slug,
-              type: 'game' // ← ESPECIFICAR TIPO
-            },
-            enrichedTracks,
-            index
-          )
-        }
+                ...enrichedTracks[index],
+                type: 'game'
+              },
+              enrichedTracks,
+              index
+            )
+          }
           isPlaying={isPlaying}
           likedTracks={likedTracks}
           setLikedTracks={setLikedTracks}

@@ -102,8 +102,6 @@ export default function FavoritesPage() {
                 </h1>
 
                 <div className="text-gray-400 text-sm flex items-center gap-3">
-                  <span className="font-semibold text-white">FCUS</span>
-                  <span>•</span>
                   <span>{favoriteTracks.length} músicas</span>
                 </div>
               </div>

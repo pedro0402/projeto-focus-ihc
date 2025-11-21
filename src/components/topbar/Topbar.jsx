@@ -59,7 +59,7 @@ function Topbar() {
     );
   };
 
-  // Função de busca
+  // Função de busca (mantém busca em tudo)
   const performSearch = (term) => {
     if (!term.trim()) {
       setSearchResults([]);
@@ -165,7 +165,7 @@ function Topbar() {
             <Home className="w-5 h-5 text-white"/>
           </LinkButton>
 
-          {/* BARRA DE PESQUISA MELHORADA */}
+          {/* BARRA DE PESQUISA (MANTIDA ORIGINAL) */}
           <div className="relative flex-1">
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
             
@@ -187,7 +187,7 @@ function Topbar() {
               </button>
             )}
 
-            {/* RESULTADOS DA BUSCA */}
+            {/* RESULTADOS DA BUSCA (MANTIDO ORIGINAL) */}
             {showResults && searchResults.length > 0 && (
               <div className="absolute top-full left-0 right-0 mt-2 bg-gray-900 border border-gray-700 rounded-xl shadow-2xl max-h-96 overflow-y-auto z-50">
                 <div className="p-2">
@@ -246,30 +246,6 @@ function Topbar() {
                 <p className="text-gray-400">Nenhum resultado encontrado para "{searchTerm}"</p>
               </div>
             )}
-          </div>
-
-          {/* Botões adicionais */}
-          <div className="flex items-center gap-2">
-            <LinkButton
-              to="/playlists"
-              className="px-4 py-2 bg-gray-900 hover:bg-gray-800 rounded-full text-sm text-white transition-colors"
-            >
-              Playlists
-            </LinkButton>
-
-            <LinkButton
-              to="/generos"
-              className="px-4 py-2 bg-gray-900 hover:bg-gray-800 rounded-full text-sm text-white transition-colors"
-            >
-              Gêneros
-            </LinkButton>
-
-            <LinkButton
-              to="/franquias"
-              className="px-4 py-2 bg-gray-900 hover:bg-gray-800 rounded-full text-sm text-white transition-colors"
-            >
-              Franquias
-            </LinkButton>
           </div>
         </div>
 

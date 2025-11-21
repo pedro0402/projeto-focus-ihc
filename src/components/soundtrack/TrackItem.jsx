@@ -1,6 +1,5 @@
-// src/components/soundtrack/TrackItem.jsx
 import { Heart } from "lucide-react";
-import { useFavorites } from "../../context/FavoritesCotext"; // ← NOVO
+import { useFavorites } from "../../context/FavoritesCotext"; 
 
 export default function TrackItem({
   track,
@@ -9,9 +8,9 @@ export default function TrackItem({
   isPlaying,
   onClick
 }) {
-  const { isTrackFavorite, toggleFavorite } = useFavorites(); // ← NOVO
+  const { isTrackFavorite, toggleFavorite } = useFavorites();
   
-  const isFavorite = isTrackFavorite(track); // ← NOVO
+  const isFavorite = isTrackFavorite(track);
 
   return (
     <div
@@ -26,7 +25,6 @@ export default function TrackItem({
     >
       <div className="flex items-center gap-6">
 
-        {/* Número ou animação */}
         <div className="w-12 h-12 flex items-center justify-center">
           {isCurrent && isPlaying ? (
             <div className="relative">
@@ -44,23 +42,21 @@ export default function TrackItem({
           )}
         </div>
 
-        {/* Título */}
         <div className="flex-1 min-w-0">
           <p className="text-lg font-bold truncate">{track.title}</p>
-          <p className="text-sm text-gray-400 truncate">{track.artist}</p> {/* ← NOVO: mostrar artista */}
+          <p className="text-sm text-gray-400 truncate">{track.artist}</p>
         </div>
 
-        {/* Like - AGORA CONECTADO COM FAVORITOS */}
         <button
           onClick={(e) => {
             e.stopPropagation();
-            toggleFavorite(track); // ← NOVO: usa o contexto
+            toggleFavorite(track);
           }}
           className="opacity-0 group-hover:opacity-100 transition-opacity"
         >
           <Heart
             className={`w-5 h-5 ${
-              isFavorite ? "fill-green-500 text-green-500" : "text-gray-400 hover:text-white" // ← NOVO: usa isFavorite
+              isFavorite ? "fill-green-500 text-green-500 cursor-pointer" : "text-gray-400 hover:text-white cursor-pointer" 
             }`}
           />
         </button>

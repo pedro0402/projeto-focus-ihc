@@ -34,7 +34,7 @@ function App() {
               }
             />
             <Route 
-              path='/favoritos'
+              path='/curtidos'
               element={
                 <MainLayout>
                   <LayoutWithSidebar>

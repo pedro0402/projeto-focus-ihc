@@ -44,6 +44,8 @@ export function PlayerProvider({ children }) {
       setCurrentTrack(nextTrack);
       setCurrentTrackIndex(nextIndex);
       setIsPlaying(true);
+
+      addToRecentlyPlayed(nextTrack);
     } else {
       const firstTrack = currentPlaylist[0]
       setCurrentTrack(firstTrack);

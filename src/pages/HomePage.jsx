@@ -22,12 +22,10 @@ function Home() {
     ];
 
     const genreGames = [
-        { title: "Jogos de Exploração", image: "/exploration.jpg" },
-        { title: "Jogos de Aventura", image: "/hunter.png" },
-        { title: "Jogos de Heróis", image: "/avengers.jpg" },
-        { title: "Assassin's Creed Collection", image: "/assasins.jpg" },
-        { title: "Souls Like", image: "/souls.jpg" },
-        { title: "Jogos de Tiro", image: "/cod.jpg" }
+        { title: "Jogos de Exploração", image: "/exploration.jpg", path: "/playlist/jogos-de-exploracao" },
+        { title: "Jogos de Heróis", image: "/avengers.jpg", path: "/playlist/jogos-de-heroi" },
+        { title: "Assassin's Creed Collection", image: "/assasins.jpg", path: "/playlist/assassins-creed-collection" },
+        { title: "Souls Like", image: "/souls.jpg", path: "/playlist/souls-like" },
     ];
 
     useEffect(() => {
@@ -64,9 +62,6 @@ function Home() {
                     </div>
                 </div>
 
-
-
-                    
                 <div className="grid grid-cols-4 gap-4 mb-8">
                 {favoriteCards.map((card, idx) => (
                     <LinkButton 
@@ -100,28 +95,33 @@ function Home() {
                     <div className="relative w-full max-w-3xl h-[300px] mx-auto flex items-center justify-center">
 
                         {genreGames.map((game, index) => (
-                            <div
+                            <LinkButton
                                 key={index}
-                                className={`
-                                    absolute top-0 left-1/2 -translate-x-1/2 
-                                    flex flex-col items-center 
-                                    transition-opacity duration-300
-                                    ${index === currentIndex ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}
-                                `}
+                                to={game.path}
                             >
-                                <div className="flex flex-col items-center cursor-pointer transition-transform duration-300 hover:scale-105 z-10">
-                                    <img
-                                        src={game.image}
-                                        alt={game.title}
-                                        className="w-40 h-56 object-cover rounded-xl mt-4"
-                                    />
+                                <div
+                                    key={index}
+                                    className={`
+                                        absolute top-0 left-1/2 -translate-x-1/2 
+                                        flex flex-col items-center 
+                                        transition-opacity duration-300
+                                        ${index === currentIndex ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}
+                                    `}
+                                >
+                                    <div className="flex flex-col items-center cursor-pointer transition-transform duration-300 hover:scale-105 z-10">
+                                        <img
+                                            src={game.image}
+                                            alt={game.title}
+                                            className="w-40 h-56 object-cover rounded-xl mt-4"
+                                        />
 
-                                    <h2 className="text-xl md:text-2xl font-bold text-white mt-4 text-center">
-                                        {game.title}
-                                    </h2>
+                                        <h2 className="text-xl md:text-2xl font-bold text-white mt-4 text-center">
+                                            {game.title}
+                                        </h2>
 
+                                    </div>
                                 </div>
-                            </div>
+                            </LinkButton>
                         ))}
 
                         {/* Botões */}

@@ -1,6 +1,6 @@
 // src/data/playlistsData.js
 export const playlistsData = {
-  // Playlist de Clássicos 8-bit
+
   "classicos-8-bit": {
     id: "classicos-8-bit",
     title: "Clássicos 8-bit",
@@ -12,27 +12,19 @@ export const playlistsData = {
         id: 1,
         title: "Super Mario Bros Theme",
         artist: "Koji Kondo",
-        duration: "2:45",
-        url: "/musics/mario-theme.mp3"
+        duration: "1:22",
+        url: "/musics/SuperMarioBrosThemeSong.mp3"
       },
       {
         id: 2,
         title: "Zelda Overworld",
         artist: "Koji Kondo", 
         duration: "3:20",
-        url: "/musics/zelda-overworld.mp3"
-      },
-      {
-        id: 3,
-        title: "Megaman 2 - Dr. Wily Stage 1",
-        artist: "Takashi Tateishi",
-        duration: "2:15",
-        url: "/musics/megaman-wily.mp3"
+        url: "/musics/TheLegendofZeldaOverworld.mp3"
       }
     ]
   },
 
-  // Playlist de Modo Foco
   "modo-foco": {
     id: "modo-foco",
     title: "MODO: FOCO",
@@ -43,21 +35,13 @@ export const playlistsData = {
       {
         id: 1,
         title: "Deep Focus",
-        artist: "Ambient Study",
-        duration: "4:30",
-        url: "/musics/deep-focus.mp3"
-      },
-      {
-        id: 2,
-        title: "Study Session",
-        artist: "Concentration Flow",
-        duration: "3:45",
-        url: "/musics/study-session.mp3"
+        artist: "Vários Artistas",
+        duration: "4:00",
+        url: "/musics/StudyFocusMusic.mp3"
       }
     ]
   },
 
-  // Playlist de Chefões Lendários
   "chefoes-lendarios": {
     id: "chefoes-lendarios",
     title: "Chefões Lendários",
@@ -69,15 +53,15 @@ export const playlistsData = {
         id: 1,
         title: "Ganon Battle",
         artist: "Koji Kondo",
-        duration: "4:10",
-        url: "/musics/ganon-battle.mp3"
+        duration: "3:24",
+        url: "/musics/ZeldaOcarinaofTimeMusic-LastBattle(Ganon).mp3"
       },
       {
         id: 2,
         title: "Bowser's Castle",
         artist: "Koji Kondo",
-        duration: "3:25",
-        url: "/musics/bowsers-castle.mp3"
+        duration: "2:55",
+        url: "/musics/SuperMarioWorld-CastleThemeEpicOrchestralCover.mp3"
       }
     ]
   },
@@ -85,15 +69,15 @@ export const playlistsData = {
     id: "its-gow-time",
     title: "It's GOW time!",
     image: "/god-of-war.jpg",
-    description: "A épica jornada nórdica de Kratos e Atreus.",
+    description: "A épica jornada nórdica de Kratos.",
     type: "categoria",
     tracks: [
       {
         id: 1,
-        title: "God of War",
-        artist: "Bear McCreary",
-        duration: "4:50",
-        url: "/musics/gow-main.mp3"
+        title: "God of War Theme (PS2)",
+        artist: "Gerard Marino",
+        duration: "1:54",
+        url: "/musics/MúsicaTemaDoGodOfWar2PS2.mp3"
       }
     ]
   },
@@ -106,10 +90,10 @@ export const playlistsData = {
     tracks: [
       {
         id: 1,
-        title: "Game Over Theme",
-        artist: "Various Artists",
-        duration: "1:30",
-        url: "/musics/game-over.mp3"
+        title: "Game Over: Super Mario Bros.",
+        artist: "Koji Kondo",
+        duration: "0:14",
+        url: "/musics/GameOverSuperMarioBros..mp3"
       }
     ]
   },
@@ -122,11 +106,34 @@ export const playlistsData = {
     tracks: [
         {
         id: 1,
-        title: "Game Over Theme",
-        artist: "Various Artists",
-        duration: "1:30",
-        url: "/musics/game-over.mp3"
+        title: "Love Me Again",
+        artist: "John Newman",
+        duration: "3:55",
+        url: "/musics/(FIFA 14) John Newman - Love Me Again.mp3"
+        },
+        {
+        id: 2,
+        title: "Alive",
+        artist: "Empire of the Sun",
+        duration: "3:23",
+        url: "/musics/Empire of the Sun - Alive - FIFA 14 Soundtrack.mp3"
         }
     ]
+    },
+    "lofi": {
+      id: "lofi",
+      title: "LOFI",
+      image: "/lofi.jpg",
+      description: "Nada melhor do que escutar um LOFI enquanto joga.",
+      type: "categoria",
+      tracks: [
+          {
+          id: 1,
+          title: "Sunflower(LOFI)",
+          artist: "Post Malone",
+          duration: "1:30",
+          url: "/musics/Spiderman_ into the Spider-Verse(but it's lofi hiphop) ~ Sunflower ft @ShimuLoFi.mp3"
+          }
+      ]
     }
 };

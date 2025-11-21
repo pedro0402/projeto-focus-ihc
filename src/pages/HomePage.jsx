@@ -18,7 +18,7 @@ function Home() {
         { title: "It's GOW time!", image: "/god-of-war.jpg" , path: "/playlist/its-gow-time"},
         { title: "NÃO CHORA NEWBIE", image: "/newbie.jpg" , path: "/playlist/nao-chora-newbie"},
         { title: "FIFA 14 NOSTALGIA", image: "/fifa14.jpg" , path: "/playlist/fifa-14"},
-        { title: "LOFI", image: "/lofi.jpg" }
+        { title: "LOFI", image: "/lofi.jpg", path: "playlist/lofi" }
     ];
 
     const genreGames = [

@@ -57,10 +57,6 @@ function Home() {
         setCurrentIndex(currentIndex === 0 ? genreGames.length - 1 : currentIndex - 1);
     }
 
-    const goToSlide = (index) => {
-        setCurrentIndex(index)
-    }
-
     function slugify(title) {
         return title
             .toLowerCase()
@@ -85,7 +81,7 @@ function Home() {
             idx === 0 ? (
             <LinkButton 
                 key={idx}
-                to="/favoritos"
+                to={`${slugify(card.title.toLowerCase().replace(/\s+/g, "-"))}`}
                 className="block"
             >
                 <div className="flex items-center gap-4 bg-gradient-to-r from-blue-950 to-blue-900 rounded-lg overflow-hidden max-w-2xl hover:scale-105 transition-transform cursor-pointer shadow-lg">
@@ -96,13 +92,19 @@ function Home() {
                 </div>
             </LinkButton>
             ) : (
-            <div 
-                key={idx} 
-                className="flex items-center gap-4 bg-gradient-to-r from-blue-950 to-blue-900 rounded-lg overflow-hidden max-w-2xl hover:scale-105 transition-transform cursor-pointer shadow-lg"
+            <LinkButton 
+                key={idx}
+                to={`${slugify(card.title.toLowerCase().replace(/\s+/g, "-"))}`}
+                className="block"
             >
-                <img src={card.image} alt={card.title} className="w-12 h-12 bg-white flex items-center justify-center flex-shrink-0"/>
-                <span className="text-white font-semibold text-sm">{card.title}</span>
-            </div>
+                <div 
+                    key={idx} 
+                    className="flex items-center gap-4 bg-gradient-to-r from-blue-950 to-blue-900 rounded-lg overflow-hidden max-w-2xl hover:scale-105 transition-transform cursor-pointer shadow-lg"
+                >
+                    <img src={card.image} alt={card.title} className="w-12 h-12 bg-white flex items-center justify-center flex-shrink-0"/>
+                    <span className="text-white font-semibold text-sm">{card.title}</span>
+                </div>
+            </LinkButton>
             )
         ))}
         </div>

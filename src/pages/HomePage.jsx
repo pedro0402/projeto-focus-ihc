@@ -3,7 +3,7 @@ import { AiOutlineAim } from "react-icons/ai";
 import { GiElfHelmet } from "react-icons/gi";
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import LinkButton from "../layouts/LinkButton";
-import { gamesData } from "../data/gamesData";
+import { gamesData } from "../data/MostViewedSoundtrackData";
 import { Link } from "react-router-dom";
 
 function Home() {
@@ -11,13 +11,13 @@ function Home() {
     const [currentIndex, setCurrentIndex] = useState(0);
 
     const favoriteCards = [
-        { title: "Curtidos", color: "bg-green-500" },
-        { title: "Clássicos 8-bit", image: "/8bit.jpeg" },
-        { title: "MODO: FOCO", image: "/foco.gif" },
-        { title: "Chefões Lendários", image: "/bowser.jpeg" },
-        { title: "It's GOW time!", image: "/god-of-war.jpg" },
-        { title: "NÃO CHORA NEWBIE", image: "/newbie.jpg" },
-        { title: "METAL SLUG PLAYLIST", image: "/metal.jpg" },
+        { title: "Curtidos", color: "bg-green-500", path: "/curtidos" },
+        { title: "Clássicos 8-bit", image: "/8bit.jpeg", path: "/game/classicos-8-bit" },
+        { title: "MODO: FOCO", image: "/foco.gif", path: "/game/modo-foco"},
+        { title: "Chefões Lendários", image: "/bowser.jpeg", path: "/game/chefoes-lendarios" },
+        { title: "It's GOW time!", image: "/god-of-war.jpg" , path: "/game/its-gow-time"},
+        { title: "NÃO CHORA NEWBIE", image: "/newbie.jpg" , path: "/game/nao-chora-newbie"},
+        { title: "FIFA 14 NOSTALGIA", image: "/fifa14.jpg" , path: "/game/fifa-14"},
         { title: "LOFI", image: "/lofi.jpg" }
     ];
 
@@ -28,15 +28,6 @@ function Home() {
         { title: "Assassin's Creed Collection", image: "/assasins.jpg" },
         { title: "Souls Like", image: "/souls.jpg" },
         { title: "Jogos de Tiro", image: "/cod.jpg" }
-    ];
-
-    const mainSoundtracks = [
-        { title: "Red Dead Redemption II", image: "/reddead.jpg" },
-        { title: "Cyberpunk 2077", image: "/cyber.jpg" },
-        { title: "Batman Arkham Knight", image: "/batark.jpg" },
-        { title: "Tony Hawk's Pro Skater 2", image: "/tony.jpg" },
-        { title: "Ghost of Tsushima", image: "/ghost.jpg" },
-        { title: "Expedition 33", image: "/expedition.jpg" }
     ];
 
     useEffect(() => {
@@ -57,10 +48,6 @@ function Home() {
         setCurrentIndex(currentIndex === 0 ? genreGames.length - 1 : currentIndex - 1);
     }
 
-    const goToSlide = (index) => {
-        setCurrentIndex(index)
-    }
-
     function slugify(title) {
         return title
             .toLowerCase()
@@ -79,33 +66,31 @@ function Home() {
 
 
 
-       
-        <div className="grid grid-cols-4 gap-4 mb-8">
-        {favoriteCards.map((card, idx) => (
-            idx === 0 ? (
-            <Link 
-                key={idx}
-                to="/favoritos"
-                className="block"
-            >
-                <div className="flex items-center gap-4 bg-gradient-to-r from-blue-950 to-blue-900 rounded-lg overflow-hidden max-w-2xl hover:scale-105 transition-transform cursor-pointer shadow-lg">
-                <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-green-500 flex items-center justify-center flex-shrink-0">
-                    <GiElfHelmet className="w-6 h-6 text-white" />
+                    
+                <div className="grid grid-cols-4 gap-4 mb-8">
+                {favoriteCards.map((card, idx) => (
+                    <LinkButton 
+                    key={idx}
+                    to={card.path}
+                    className="block"
+                    >
+                    <div className="flex items-center gap-4 bg-gradient-to-r from-blue-950 to-blue-900 rounded-lg overflow-hidden max-w-2xl hover:scale-105 transition-transform cursor-pointer shadow-lg">
+                        {card.image ? (
+                        <img 
+                            src={card.image} 
+                            alt={card.title} 
+                            className="w-11 h-17 object-cover flex-shrink-0"
+                        />
+                        ) : (
+                        <div className="w-11 h-17 bg-gradient-to-br from-blue-500 to-green-500 flex items-center justify-center flex-shrink-0">
+                            <GiElfHelmet className="w-6 h-6 text-white" />
+                        </div>
+                        )}
+                        <span className="text-white font-semibold text-sm">{card.title}</span>
+                    </div>
+                    </LinkButton>
+                ))}
                 </div>
-                <span className="text-white font-semibold text-sm">{card.title}</span>
-                </div>
-            </Link>
-            ) : (
-            <div 
-                key={idx} 
-                className="flex items-center gap-4 bg-gradient-to-r from-blue-950 to-blue-900 rounded-lg overflow-hidden max-w-2xl hover:scale-105 transition-transform cursor-pointer shadow-lg"
-            >
-                <img src={card.image} alt={card.title} className="w-12 h-12 bg-white flex items-center justify-center flex-shrink-0"/>
-                <span className="text-white font-semibold text-sm">{card.title}</span>
-            </div>
-            )
-        ))}
-        </div>
 
 
                 <div className="relative w-full h-[360px] overflow-visible rounded-xl">
@@ -161,7 +146,7 @@ function Home() {
                         Principais Soundtracks do Momento
                     </h2>
                     <div className="flex items-center justify-center gap-4 overflow-x-auto pb-4">
-                        {mainSoundtracks.map((soundtrack, idx) => (
+                        {gamesData.map((soundtrack, idx) => (
                             <LinkButton
                                 key={idx}
                                 to={`/game/${slugify(soundtrack.title.toLowerCase().replace(/\s+/g, "-"))}`}

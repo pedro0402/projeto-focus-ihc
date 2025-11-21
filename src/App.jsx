@@ -34,7 +34,17 @@ function App() {
               }
             />
             <Route 
-              path='/favoritos'
+              path='/curtidos'
+              element={
+                <MainLayout>
+                  <LayoutWithSidebar>
+                    <FavoritesPage/>
+                  </LayoutWithSidebar>
+                </MainLayout>
+              }
+            />
+            <Route 
+              path='/game/classicos-8-bit'
               element={
                 <MainLayout>
                   <LayoutWithSidebar>

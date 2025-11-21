@@ -2,7 +2,7 @@ import { useLocation } from "react-router-dom";
 import { useState } from "react";
 import { Search } from "lucide-react"
 import { usePlayer } from "../../context/PlayerContext";
-import LinkButton from "../../layouts/LinkButton"; // ← IMPORTAR
+import LinkButton from "../../layouts/LinkButton";
 
 function Sidebar() {
     const location = useLocation();
@@ -12,6 +12,24 @@ function Sidebar() {
     const removeAccents = (str) => {
         if (!str) return "";
         return str.normalize("NFD").replace(/[^a-zA-Z0-9 ]/g, "").replace(/[\u0300-\u036f]/g, "").toLocaleLowerCase();
+    };
+
+    // Função para determinar a URL correta
+    const getTrackUrl = (track) => {
+        if (!track) return "#";
+        
+        // Se for playlist
+        if (track.type === 'playlist' && track.playlistSlug) {
+            return `/playlist/${track.playlistSlug}`;
+        }
+        
+        // Se for jogo (default)
+        if (track.gameSlug) {
+            return `/game/${track.gameSlug}`;
+        }
+        
+        // Fallback
+        return "#";
     };
 
     const filteredRecentlyPlayed = recentlyPlayed.filter(track => {
@@ -61,7 +79,7 @@ function Sidebar() {
                         {filteredRecentlyPlayed.map((track, index) => (
                             <LinkButton 
                                 key={`${track?.title || 'unknown'}-${index}`}
-                                to={`/game/${track?.gameSlug || ''}`}
+                                to={getTrackUrl(track)}
                                 className="cursor-pointer bg-gray-900/40 hover:bg-gray-900 rounded-lg p-3 flex flex-col items-center text-center transition-transform duration-300 hover:scale-104"
                             >
                                 <div className="w-12 h-20 rounded overflow-hidden mb-2">
@@ -74,19 +92,17 @@ function Sidebar() {
                                 
                                 {/* TEXTO COM LIMITAÇÃO DE LINHAS */}
                                 <div className="flex-1 w-full min-w-0">
-                                    {/* Título - máximo 2 linhas */}
                                     <div className="text-white text-sm line-clamp-2 leading-tight mb-1">
                                         {track?.title || "Título desconhecido"}
                                     </div>
                                     
-                                    {/* Artista - 1 linha */}
                                     <div className="text-gray-400 text-xs truncate leading-tight mb-1">
                                         {track?.artist || "Artista desconhecido"}
                                     </div>
                                     
-                                    {/* Jogo - 1 linha */}
                                     <div className="text-gray-400 text-xs truncate leading-tight">
-                                        Música • {track?.gameTitle || "Jogo desconhecido"}
+                                        {/* MOSTRAR SE É MÚSICA OU PLAYLIST */}
+                                        {track?.type === 'playlist' ? 'Playlist' : 'Música'} • {track?.gameTitle || "Desconhecido"}
                                     </div>
                                 </div>
                             </LinkButton>
@@ -94,7 +110,6 @@ function Sidebar() {
                     </div>
                 </div>
             ) : (
-                /* MENSAGEM QUANDO VAZIO */
                 <div className="flex-1 flex items-center justify-center">
                     <div className="text-gray-400 text-sm text-center italic">
                         {search ? "Nenhuma música encontrada na busca" : "Suas músicas recentes aparecerão aqui"}

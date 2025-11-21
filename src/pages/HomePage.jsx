@@ -12,13 +12,13 @@ function Home() {
 
     const favoriteCards = [
         { title: "Curtidos", color: "bg-green-500", path: "/curtidos" },
-        { title: "Clássicos 8-bit", image: "/8bit.jpeg", path: "/game/classicos-8-bit" },
-        { title: "MODO: FOCO", image: "/foco.gif", path: "/game/modo-foco"},
-        { title: "Chefões Lendários", image: "/bowser.jpeg", path: "/game/chefoes-lendarios" },
-        { title: "It's GOW time!", image: "/god-of-war.jpg" , path: "/game/its-gow-time"},
-        { title: "NÃO CHORA NEWBIE", image: "/newbie.jpg" , path: "/game/nao-chora-newbie"},
-        { title: "FIFA 14 NOSTALGIA", image: "/fifa14.jpg" , path: "/game/fifa-14"},
-        { title: "LOFI", image: "/lofi.jpg" }
+        { title: "Clássicos 8-bit", image: "/8bit.jpeg", path: "/playlist/classicos-8-bit" },
+        { title: "MODO: FOCO", image: "/foco.gif", path: "/playlist/modo-foco"},
+        { title: "Chefões Lendários", image: "/bowser.jpeg", path: "/playlist/chefoes-lendarios" },
+        { title: "It's GOW time!", image: "/god-of-war.jpg" , path: "/playlist/its-gow-time"},
+        { title: "NÃO CHORA NEWBIE", image: "/newbie.jpg" , path: "/playlist/nao-chora-newbie"},
+        { title: "FIFA 14 NOSTALGIA", image: "/fifa14.jpg" , path: "/playlist/fifa-14"},
+        { title: "LOFI", image: "/lofi.jpg", path: "playlist/lofi" }
     ];
 
     const genreGames = [

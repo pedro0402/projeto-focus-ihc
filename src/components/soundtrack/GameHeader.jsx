@@ -17,7 +17,7 @@ export default function GameHeader({ game, dominantColor }) {
           <div className="relative group">
             <div className="absolute inset-0 bg-gradient-to-br from-green-500 to-blue-700 blur-2xl opacity-40 group-hover:opacity-60"></div>
 
-            <div className="relative w-48 h-64 rounded-xl overflow-hidden shadow-2xl border-4 border-blue-400/20">
+            <div className="relative w-48 h-80 rounded-xl overflow-hidden shadow-2xl border-4 border-blue-400/20">
               <img 
                 src={game.image}
                 alt={game.title}

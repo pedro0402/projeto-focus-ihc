@@ -11,7 +11,14 @@ export function PlayerProvider({ children }) {
   const [recentlyPlayed, setRecentlyPlayed] = useState([0])
 
   function playTrack(track, playlist = [], index) {
-    setCurrentTrack(track);
+
+    const trackWithType = {
+      ...track,
+      type: track.type || "game",
+      playlistSlug: track.playlistSlug || null
+    }
+
+    setCurrentTrack(trackWithType);
     setCurrentPlaylist(playlist);
     setCurrentTrackIndex(index);
     setIsPlaying(true);

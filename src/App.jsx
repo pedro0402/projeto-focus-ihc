@@ -1,11 +1,12 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import LayoutWithSidebar from './layouts/LayoutWithSidebar';
-import Home from './pages/Home';
+import Home from './pages/HomePage';
 import MainLayout from './layouts/MainLayout';
-import GameSoundtrack from './pages/GameSoundtrack';
+import GameSoundtrack from './pages/GameSoundtrackPage';
 import FavoritesPage from './pages/FavoritesPage';
 import { PlayerProvider } from './context/PlayerContext';
 import { FavoritesProvider } from './context/FavoritesCotext';
+import PlaylistPage from './pages/PlaylistPage';
 
 function App() {
   return (
@@ -44,11 +45,11 @@ function App() {
               }
             />
             <Route 
-              path='/game/classicos-8-bit'
+              path='/playlist/:playlistId'
               element={
                 <MainLayout>
                   <LayoutWithSidebar>
-                    <FavoritesPage/>
+                    <PlaylistPage/>
                   </LayoutWithSidebar>
                 </MainLayout>
               }

@@ -12,7 +12,7 @@ function App() {
   return (
     <FavoritesProvider>
       <PlayerProvider>  
-        <Router>
+        <Router basename="/projeto-focus-ihc/">
           <Routes>
             <Route 
               path='/'

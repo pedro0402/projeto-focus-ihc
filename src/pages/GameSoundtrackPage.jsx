@@ -67,7 +67,6 @@ export default function GameSoundtrackPage() {
               gameSlug: game.slug,
               type: 'game' // ← ESPECIFICAR TIPO
             },
-            enrichedTracks[index],
             enrichedTracks,
             index
           )

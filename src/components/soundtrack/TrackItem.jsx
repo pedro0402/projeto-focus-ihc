@@ -1,14 +1,18 @@
+// src/components/soundtrack/TrackItem.jsx
 import { Heart } from "lucide-react";
+import { useFavorites } from "../../context/FavoritesCotext"; // ← NOVO
 
 export default function TrackItem({
   track,
   index,
   isCurrent,
   isPlaying,
-  liked,
-  onClick,
-  toggleLike
+  onClick
 }) {
+  const { isTrackFavorite, toggleFavorite } = useFavorites(); // ← NOVO
+  
+  const isFavorite = isTrackFavorite(track); // ← NOVO
+
   return (
     <div
       onClick={onClick}
@@ -43,19 +47,20 @@ export default function TrackItem({
         {/* Título */}
         <div className="flex-1 min-w-0">
           <p className="text-lg font-bold truncate">{track.title}</p>
+          <p className="text-sm text-gray-400 truncate">{track.artist}</p> {/* ← NOVO: mostrar artista */}
         </div>
 
-        {/* Like */}
+        {/* Like - AGORA CONECTADO COM FAVORITOS */}
         <button
           onClick={(e) => {
             e.stopPropagation();
-            toggleLike(index);
+            toggleFavorite(track); // ← NOVO: usa o contexto
           }}
           className="opacity-0 group-hover:opacity-100 transition-opacity"
         >
           <Heart
             className={`w-5 h-5 ${
-              liked ? "fill-green-500 text-green-500" : "text-gray-400 hover:text-white"
+              isFavorite ? "fill-green-500 text-green-500" : "text-gray-400 hover:text-white" // ← NOVO: usa isFavorite
             }`}
           />
         </button>

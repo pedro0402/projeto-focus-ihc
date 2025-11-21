@@ -3,41 +3,50 @@ import LayoutWithSidebar from './layouts/LayoutWithSidebar';
 import Home from './pages/Home';
 import MainLayout from './layouts/MainLayout';
 import GameSoundtrack from './pages/GameSoundtrack';
-import FavoritesPage from './pages/FavoritesPage'; // 👈 Importar a nova página
+import FavoritesPage from './pages/FavoritesPage';
 import { PlayerProvider } from './context/PlayerContext';
+import { FavoritesProvider } from './context/FavoritesCotext';
 
 function App() {
   return (
-    <Router>
+    <FavoritesProvider>
       <PlayerProvider>  
-        <Routes>
-          <Route 
-            path='/'
-            element={
-            <MainLayout>
-              <LayoutWithSidebar>
-                <Home/>
-              </LayoutWithSidebar>
-            </MainLayout>
-            }/>
-          <Route path='/game/:gameId' element={
-            <MainLayout>
-              <LayoutWithSidebar>
-                <GameSoundtrack/>
-              </LayoutWithSidebar>
-            </MainLayout>
-          }/>
-          {/* 👇 Adicionar a nova rota */}
-          <Route path='/favoritos' element={
-            <MainLayout>
-              <LayoutWithSidebar>
-                <FavoritesPage/>
-              </LayoutWithSidebar>
-            </MainLayout>
-          }/>
-        </Routes>
+        <Router>
+          <Routes>
+            <Route 
+              path='/'
+              element={
+                <MainLayout>
+                  <LayoutWithSidebar>
+                    <Home/>
+                  </LayoutWithSidebar>
+                </MainLayout>
+              }
+            />            
+            <Route 
+              path='/game/:gameId' 
+              element={
+                <MainLayout>
+                  <LayoutWithSidebar>
+                    <GameSoundtrack/>
+                  </LayoutWithSidebar>
+                </MainLayout>
+              }
+            />
+            <Route 
+              path='/favoritos'
+              element={
+                <MainLayout>
+                  <LayoutWithSidebar>
+                    <FavoritesPage/>
+                  </LayoutWithSidebar>
+                </MainLayout>
+              }
+            />
+          </Routes>
+        </Router>
       </PlayerProvider>    
-    </Router>
+    </FavoritesProvider>
   ) 
 }
 

@@ -83,7 +83,7 @@ function Home() {
         <div className="grid grid-cols-4 gap-4 mb-8">
         {favoriteCards.map((card, idx) => (
             idx === 0 ? (
-            <Link 
+            <LinkButton 
                 key={idx}
                 to="/favoritos"
                 className="block"
@@ -94,7 +94,7 @@ function Home() {
                 </div>
                 <span className="text-white font-semibold text-sm">{card.title}</span>
                 </div>
-            </Link>
+            </LinkButton>
             ) : (
             <div 
                 key={idx} 

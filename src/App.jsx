@@ -1,8 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import LayoutWithSidebar from './layouts/LayoutWithSidebar';
-import LayoutWithoutSidebar from './layouts/LayoutWithoutSidebar';
 import Home from './pages/Home';
-import Soundtracks from './pages/Soundtracks'
 import MainLayout from './layouts/MainLayout';
 import GameSoundtrack from './pages/GameSoundtrack';
 import FavoritesPage from './pages/FavoritesPage'; // 👈 Importar a nova página
@@ -20,13 +18,6 @@ function App() {
               <LayoutWithSidebar>
                 <Home/>
               </LayoutWithSidebar>
-            </MainLayout>
-            }/>
-          <Route path='/soundtracks' element={
-            <MainLayout>
-              <LayoutWithoutSidebar>
-                <Soundtracks/>
-              </LayoutWithoutSidebar>
             </MainLayout>
             }/>
           <Route path='/game/:gameId' element={

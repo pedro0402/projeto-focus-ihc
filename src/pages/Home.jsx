@@ -75,7 +75,6 @@ function Home() {
                     <div className="w-12 h-12 flex items-center justify-center">
                         <span className="text-4xl text-blue-500"><AiOutlineAim /></span>
                     </div>
-                    <LinkButton to='/soundtracks' children="SOUNDTRACKS" className={"px-6 py-2 bg-blue-600 text-white rounded-full text-sm font-semibold hover:bg-blue-700"} />
                 </div>
 
 

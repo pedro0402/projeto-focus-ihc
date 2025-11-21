@@ -8,7 +8,6 @@ import { gamesData } from "../data/MostViewedSoundtrackData";
 function Home() {
     const [currentIndex, setCurrentIndex] = useState(0);
 
-    // Dados (mantidos como no original)
     const favoriteCards = [
         { title: "Curtidos", color: "bg-green-500", path: "/curtidos" },
         { title: "Clássicos 8-bit", image: "/8bit.jpeg", path: "/playlist/classicos-8-bit" },
@@ -27,7 +26,6 @@ function Home() {
         { title: "Souls Like", image: "/souls.jpg", path: "/playlist/souls-like" },
     ];
 
-    // Lógica do carrossel (mantida como no original)
     useEffect(() => {
         const timer = setInterval(() => {
             setCurrentIndex((prevIndex) =>
@@ -45,7 +43,6 @@ function Home() {
         setCurrentIndex(currentIndex === 0 ? genreGames.length - 1 : currentIndex - 1);
     }
     
-    // Função slugify (mantida como no original)
     function slugify(title) {
         return title
             .toLowerCase()
@@ -68,9 +65,9 @@ function Home() {
                         <LinkButton key={idx} to={card.path} className="block">
                             <div className="flex items-center gap-4 bg-gradient-to-r from-blue-950 to-blue-900 rounded-lg overflow-hidden w-full hover:scale-105 transition-transform cursor-pointer shadow-lg">
                                 {card.image ? (
-                                    <img src={card.image} alt={card.title} className="w-14 h-14 object-cover flex-shrink-0" />
+                                    <img src={card.image} alt={card.title} className="w-14 h-22 object-cover flex-shrink-0" />
                                 ) : (
-                                    <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-green-500 flex items-center justify-center flex-shrink-0">
+                                    <div className="w-14 h-22 bg-gradient-to-br from-blue-500 to-green-500 flex items-center justify-center flex-shrink-0">
                                         <GiElfHelmet className="w-6 h-6 text-white" />
                                     </div>
                                 )}
@@ -80,9 +77,6 @@ function Home() {
                     ))}
                 </div>
 
-                {/* --- CORREÇÃO APLICADA AQUI --- */}
-                {/* 1. overflow-hidden para evitar sobreposição */}
-                {/* 2. Altura ajustada (h-[380px]) para dar mais espaço ao título */}
                 <div className="relative w-full h-[380px] overflow-hidden rounded-xl">
                     <h2 className="text-green-500 text-xl md:text-2xl font-bold mb-4 text-center">
                         Soundtracks baseadas em seus últimos gêneros jogados
@@ -104,7 +98,6 @@ function Home() {
                                             alt={game.title}
                                             className="w-36 h-48 sm:w-40 sm:h-56 object-cover rounded-xl mt-4 shadow-2xl"
                                         />
-                                        {/* 3. max-w-[200px] para controlar a quebra de linha do título */}
                                         <h2 className="text-lg md:text-xl font-bold text-white mt-4 text-center max-w-[200px] sm:max-w-xs">
                                             {game.title}
                                         </h2>
@@ -132,7 +125,8 @@ function Home() {
                     <h2 className="text-green-500 text-xl md:text-2xl text-center font-bold mb-4">
                         Principais Soundtracks do Momento
                     </h2>
-                    <div className="flex items-start justify-start gap-4 overflow-x-auto pb-4 -mx-4 px-4">
+                    
+                    <div className="flex items-start justify-start md:justify-center gap-4 overflow-x-auto pb-4 -mx-4 px-4">
                         {gamesData.map((soundtrack, idx) => (
                             <LinkButton
                                 key={idx}

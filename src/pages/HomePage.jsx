@@ -10,20 +10,20 @@ function Home() {
 
     const favoriteCards = [
         { title: "Curtidos", color: "bg-green-500", path: "/curtidos" },
-        { title: "Clássicos 8-bit", image: "/8bit.jpeg", path: "/playlist/classicos-8-bit" },
-        { title: "MODO: FOCO", image: "/foco.gif", path: "/playlist/modo-foco"},
-        { title: "Chefões Lendários", image: "/bowser.jpeg", path: "/playlist/chefoes-lendarios" },
-        { title: "It's GOW time!", image: "/god-of-war.jpg" , path: "/playlist/its-gow-time"},
-        { title: "NÃO CHORA NEWBIE", image: "/newbie.jpg" , path: "/playlist/nao-chora-newbie"},
-        { title: "FIFA 14 NOSTALGIA", image: "/fifa14.jpg" , path: "/playlist/fifa-14"},
-        { title: "LOFI", image: "/lofi.jpg", path: "playlist/lofi" }
+        { title: "Clássicos 8-bit", image: `${import.meta.env.BASE_URL}8bit.jpeg`, path: "/playlist/classicos-8-bit" },
+        { title: "MODO: FOCO", image: `${import.meta.env.BASE_URL}foco.gif`, path: "/playlist/modo-foco"},
+        { title: "Chefões Lendários", image: `${import.meta.env.BASE_URL}bowser.jpeg`, path: "/playlist/chefoes-lendarios" },
+        { title: "It's GOW time!", image: `${import.meta.env.BASE_URL}god-of-war.jpg` , path: "/playlist/its-gow-time"},
+        { title: "NÃO CHORA NEWBIE", image: `${import.meta.env.BASE_URL}newbie.jpg` , path: "/playlist/nao-chora-newbie"},
+        { title: "FIFA 14 NOSTALGIA", image: `${import.meta.env.BASE_URL}fifa14.jpg` , path: "/playlist/fifa-14"},
+        { title: "LOFI", image: `${import.meta.env.BASE_URL}lofi.jpg`, path: "playlist/lofi" }
     ];
 
     const genreGames = [
-        { title: "Jogos de Exploração", image: "/exploration.jpg", path: "/playlist/jogos-de-exploracao" },
-        { title: "Jogos de Heróis", image: "/avengers.jpg", path: "/playlist/jogos-de-heroi" },
-        { title: "Assassin's Creed Collection", image: "/assasins.jpg", path: "/playlist/assassins-creed-collection" },
-        { title: "Souls Like", image: "/souls.jpg", path: "/playlist/souls-like" },
+        { title: "Jogos de Exploração", image: `${import.meta.env.BASE_URL}exploration.jpg`, path: "/playlist/jogos-de-exploracao" },
+        { title: "Jogos de Heróis", image: `${import.meta.env.BASE_URL}avengers.jpg`, path: "/playlist/jogos-de-heroi" },
+        { title: "Assassin's Creed Collection", image: `${import.meta.env.BASE_URL}assasins.jpg`, path: "/playlist/assassins-creed-collection" },
+        { title: "Souls Like", image: `${import.meta.env.BASE_URL}souls.jpg`, path: "/playlist/souls-like" },
     ];
 
     useEffect(() => {

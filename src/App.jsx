@@ -43,6 +43,16 @@ function App() {
                 </MainLayout>
               }
             />
+            <Route 
+              path='/game/classicos-8-bit'
+              element={
+                <MainLayout>
+                  <LayoutWithSidebar>
+                    <FavoritesPage/>
+                  </LayoutWithSidebar>
+                </MainLayout>
+              }
+            />
           </Routes>
         </Router>
       </PlayerProvider>    

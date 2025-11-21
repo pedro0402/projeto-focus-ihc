@@ -5,23 +5,23 @@ import LinkButton from "../../layouts/LinkButton";
 import { gamesData } from "../../data/MostViewedSoundtrackData";
 import { GiElfHelmet } from "react-icons/gi";
 
-// Dados das playlists (mantidos como no original)
+// Dados das playlists com caminhos corrigidos
 const favoriteCards = [
   { title: "Curtidos", color: "bg-green-500", path: "/curtidos" },
-  { title: "Clássicos 8-bit", image: "/8bit.jpeg", path: "/playlist/classicos-8-bit" },
-  { title: "MODO: FOCO", image: "/foco.gif", path: "/playlist/modo-foco"},
-  { title: "Chefões Lendários", image: "/bowser.jpeg", path: "/playlist/chefoes-lendarios" },
-  { title: "It's GOW time!", image: "/god-of-war.jpg" , path: "/playlist/its-gow-time"},
-  { title: "NÃO CHORA NEWBIE", image: "/newbie.jpg" , path: "/playlist/nao-chora-newbie"},
-  { title: "FIFA 14 NOSTALGIA", image: "/fifa14.jpg" , path: "/playlist/fifa-14"},
-  { title: "LOFI", image: "/lofi.jpg", path: "/playlist/lofi" }
+  { title: "Clássicos 8-bit", image: `${import.meta.env.BASE_URL}8bit.jpeg`, path: "/playlist/classicos-8-bit" },
+  { title: "MODO: FOCO", image: `${import.meta.env.BASE_URL}foco.gif`, path: "/playlist/modo-foco"},
+  { title: "Chefões Lendários", image: `${import.meta.env.BASE_URL}bowser.jpeg`, path: "/playlist/chefoes-lendarios" },
+  { title: "It's GOW time!", image: `${import.meta.env.BASE_URL}god-of-war.jpg` , path: "/playlist/its-gow-time"},
+  { title: "NÃO CHORA NEWBIE", image: `${import.meta.env.BASE_URL}newbie.jpg` , path: "/playlist/nao-chora-newbie"},
+  { title: "FIFA 14 NOSTALGIA", image: `${import.meta.env.BASE_URL}fifa14.jpg` , path: "/playlist/fifa-14"},
+  { title: "LOFI", image: `${import.meta.env.BASE_URL}lofi.jpg`, path: "/playlist/lofi" }
 ];
 
 const genreGames = [
-  { title: "Jogos de Exploração", image: "/exploration.jpg", path: "/playlist/jogos-de-exploracao" },
-  { title: "Jogos de Heróis", image: "/avengers.jpg", path: "/playlist/jogos-de-heroi" },
-  { title: "Assassin's Creed Collection", image: "/assasins.jpg", path: "/playlist/assassins-creed-collection" },
-  { title: "Souls Like", image: "/souls.jpg", path: "/playlist/souls-like" },
+  { title: "Jogos de Exploração", image: `${import.meta.env.BASE_URL}exploration.jpg`, path: "/playlist/jogos-de-exploracao" },
+  { title: "Jogos de Heróis", image: `${import.meta.env.BASE_URL}avengers.jpg`, path: "/playlist/jogos-de-heroi" },
+  { title: "Assassin's Creed Collection", image: `${import.meta.env.BASE_URL}assasins.jpg`, path: "/playlist/assassins-creed-collection" },
+  { title: "Souls Like", image: `${import.meta.env.BASE_URL}souls.jpg`, path: "/playlist/souls-like" },
 ];
 
 function Topbar() {
@@ -30,13 +30,11 @@ function Topbar() {
   const [searchResults, setSearchResults] = useState([]);
   const [showResults, setShowResults] = useState(false);
 
-  // Função para remover acentos (mantida como no original)
   const removeAccents = (str) => {
     if (!str) return "";
     return str.normalize("NFD").replace(/[^a-zA-Z0-9 ]/g, "").replace(/[\u0300-\u036f]/g, "").toLocaleLowerCase();
   };
 
-  // Função para renderizar a imagem/ícone (mantida como no original)
   const renderResultImage = (result) => {
     if (result.title === "Curtidos") {
       return (
@@ -48,7 +46,7 @@ function Topbar() {
     return (
       <div className="w-12 h-20 rounded-lg overflow-hidden flex-shrink-0">
         <img 
-          src={result.image || "/placeholder.jpg"} 
+          src={result.image || `${import.meta.env.BASE_URL}placeholder.jpg`} 
           alt={result.title}
           className="w-full h-full object-cover"
         />
@@ -56,7 +54,6 @@ function Topbar() {
     );
   };
 
-  // Função de busca (mantida como no original)
   const performSearch = (term) => {
     if (!term.trim()) {
       setSearchResults([]);
@@ -112,22 +109,19 @@ function Topbar() {
 
   return (
     <div className="w-full bg-black border-b border-gray-800 px-4 md:px-6 py-3 relative">
-      {/* Container principal com layout responsivo */}
       <div className="max-w-screen-2xl mx-auto flex flex-wrap md:flex-nowrap items-center justify-between gap-y-3">
         
-        {/* Logo e Avatar (agrupados para telas pequenas) */}
         <div className="flex items-center justify-between w-full md:w-auto">
           <div className="flex items-center">
             <Logo/>
           </div>
-          {/* Avatar visível aqui em telas pequenas */}
           <div className="md:hidden flex items-center">
             <div 
               className="w-9 h-9 rounded-full bg-gray-700 overflow-hidden cursor-pointer hover:ring-2 hover:ring-gray-600 transition-all"
               onClick={() => setOpen(true)}
             >
               <img 
-                src="/user.jpg" 
+                src={`${import.meta.env.BASE_URL}user.jpg`} 
                 alt="User avatar"
                 className="w-full h-full object-cover"
               />
@@ -135,9 +129,7 @@ function Topbar() {
           </div>
         </div>
 
-        {/* Seção central com pesquisa e home */}
         <div className="flex items-center gap-2 sm:gap-4 w-full md:flex-1 md:justify-center md:max-w-2xl md:mx-8 order-3 md:order-2">
-          {/* Botão Home (oculto em telas extra pequenas) */}
           <LinkButton 
             to='/' 
             className="p-2.5 bg-gray-900 hover:bg-gray-800 rounded-full transition-colors cursor-pointer hidden sm:block"
@@ -145,7 +137,6 @@ function Topbar() {
             <Home className="w-5 h-5 text-white"/>
           </LinkButton>
 
-          {/* BARRA DE PESQUISA */}
           <div className="relative flex-1">
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
             <input
@@ -165,7 +156,6 @@ function Topbar() {
               </button>
             )}
 
-            {/* RESULTADOS DA BUSCA */}
             {showResults && searchResults.length > 0 && (
               <div className="absolute top-full left-0 right-0 mt-2 bg-gray-900 border border-gray-700 rounded-xl shadow-2xl max-h-96 overflow-y-auto z-50">
                 <div className="p-2">
@@ -190,7 +180,6 @@ function Topbar() {
               </div>
             )}
 
-            {/* MENSAGEM DE NENHUM RESULTADO */}
             {showResults && searchTerm && searchResults.length === 0 && (
               <div className="absolute top-full left-0 right-0 mt-2 bg-gray-900 border border-gray-700 rounded-xl p-4 text-center z-50">
                 <p className="text-gray-400">Nenhum resultado encontrado para "{searchTerm}"</p>
@@ -199,14 +188,13 @@ function Topbar() {
           </div>
         </div>
 
-        {/* Avatar (visível apenas em telas maiores) */}
         <div className="hidden md:flex items-center order-2 md:order-3">
           <div 
             className="w-9 h-9 rounded-full bg-gray-700 overflow-hidden cursor-pointer hover:ring-2 hover:ring-gray-600 transition-all"
             onClick={() => setOpen(true)}
           >
             <img 
-              src="/user.jpg" 
+              src={`${import.meta.env.BASE_URL}user.jpg`} 
               alt="User avatar"
               className="w-full h-full object-cover"
             />
@@ -214,7 +202,6 @@ function Topbar() {
         </div>
       </div>
 
-      {/* Modal do usuário (mantido como no original) */}
       {open && (
         <div 
           className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50"
@@ -225,7 +212,7 @@ function Topbar() {
             onClick={(e) => e.stopPropagation()}
           >
             <img 
-              src="/user.jpg" 
+              src={`${import.meta.env.BASE_URL}user.jpg`} 
               alt="User avatar large"
               className="w-50 h-50 rounded-full"
             />

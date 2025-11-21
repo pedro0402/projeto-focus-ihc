@@ -1,24 +1,15 @@
-import List from "lucide-react/dist/esm/icons/list";
+import { List } from "lucide-react";
 import TrackItem from "./TrackItem";
 
 export default function TrackList({ 
   tracks, 
   currentTrack, 
   playTrack,
-  isPlaying,
-  likedTracks,
-  setLikedTracks
+  isPlaying
 }) {
-
-  const toggleLike = (id) => {
-    const updated = new Set(likedTracks);
-    updated.has(id) ? updated.delete(id) : updated.add(id);
-    setLikedTracks(updated);
-  };
 
   return (
     <div className="px-12 py-8">
-
       <div className="flex items-center gap-3 mb-6">
         <List className="w-5 h-5 text-blue-400" />
         <h2 className="text-2xl font-bold">Tracks</h2>
@@ -32,13 +23,10 @@ export default function TrackList({
             index={index}
             isCurrent={currentTrack === index}
             isPlaying={isPlaying}
-            liked={likedTracks.has(index)}
             onClick={() => playTrack(index)}
-            toggleLike={toggleLike}
           />
         ))}
       </div>
-
     </div>
   );
 }

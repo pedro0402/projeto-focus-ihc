@@ -1,52 +1,52 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import LayoutWithSidebar from './layouts/LayoutWithSidebar';
-import LayoutWithoutSidebar from './layouts/LayoutWithoutSidebar';
 import Home from './pages/Home';
-import Soundtracks from './pages/Soundtracks'
 import MainLayout from './layouts/MainLayout';
 import GameSoundtrack from './pages/GameSoundtrack';
-import FavoritesPage from './pages/FavoritesPage'; // 👈 Importar a nova página
+import FavoritesPage from './pages/FavoritesPage';
 import { PlayerProvider } from './context/PlayerContext';
+import { FavoritesProvider } from './context/FavoritesCotext';
 
 function App() {
   return (
-    <Router>
+    <FavoritesProvider>
       <PlayerProvider>  
-        <Routes>
-          <Route 
-            path='/'
-            element={
-            <MainLayout>
-              <LayoutWithSidebar>
-                <Home/>
-              </LayoutWithSidebar>
-            </MainLayout>
-            }/>
-          <Route path='/soundtracks' element={
-            <MainLayout>
-              <LayoutWithoutSidebar>
-                <Soundtracks/>
-              </LayoutWithoutSidebar>
-            </MainLayout>
-            }/>
-          <Route path='/game/:gameId' element={
-            <MainLayout>
-              <LayoutWithSidebar>
-                <GameSoundtrack/>
-              </LayoutWithSidebar>
-            </MainLayout>
-          }/>
-          {/* 👇 Adicionar a nova rota */}
-          <Route path='/favoritos' element={
-            <MainLayout>
-              <LayoutWithSidebar>
-                <FavoritesPage/>
-              </LayoutWithSidebar>
-            </MainLayout>
-          }/>
-        </Routes>
+        <Router>
+          <Routes>
+            <Route 
+              path='/'
+              element={
+                <MainLayout>
+                  <LayoutWithSidebar>
+                    <Home/>
+                  </LayoutWithSidebar>
+                </MainLayout>
+              }
+            />            
+            <Route 
+              path='/game/:gameId' 
+              element={
+                <MainLayout>
+                  <LayoutWithSidebar>
+                    <GameSoundtrack/>
+                  </LayoutWithSidebar>
+                </MainLayout>
+              }
+            />
+            <Route 
+              path='/favoritos'
+              element={
+                <MainLayout>
+                  <LayoutWithSidebar>
+                    <FavoritesPage/>
+                  </LayoutWithSidebar>
+                </MainLayout>
+              }
+            />
+          </Routes>
+        </Router>
       </PlayerProvider>    
-    </Router>
+    </FavoritesProvider>
   ) 
 }
 

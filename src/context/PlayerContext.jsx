@@ -8,12 +8,23 @@ export function PlayerProvider({ children }) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentPlaylist, setCurrentPlaylist] = useState([]);
   const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
+  const [recentlyPlayed, setRecentlyPlayed] = useState([0])
 
-  function playTrack(track, playlist, index) {
+  function playTrack(track, playlist = [], index) {
     setCurrentTrack(track);
     setCurrentPlaylist(playlist);
     setCurrentTrackIndex(index);
     setIsPlaying(true);
+
+    addToRecentlyPlayed(track)
+  }
+
+  function addToRecentlyPlayed(track) {
+    setRecentlyPlayed (prev => {
+      const filtered = prev.filter(t => !(t.title === track.title && t.artist === track.artist));
+      const updated = [track, ...filtered].slice(0, 20);
+      return updated;
+    })
   }
 
   function nextTrack() {
@@ -43,12 +54,24 @@ export function PlayerProvider({ children }) {
     setIsPlaying(!isPlaying);
   }
 
+  useEffect(() => {
+    const saved = localStorage.getItem('recentlyPlayed');
+    if (saved) {
+      setRecentlyPlayed(JSON.parse(saved))
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('recentlyPlayed', JSON.stringify(recentlyPlayed))
+  }, [recentlyPlayed])
+
   return (
     <PlayerContext.Provider value={{
       currentTrack,
       isPlaying,
       currentPlaylist,
       currentTrackIndex,
+      recentlyPlayed,
       playTrack,
       nextTrack,
       pauseTrack,

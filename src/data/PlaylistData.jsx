@@ -135,5 +135,83 @@ export const playlistsData = {
           url: "/musics/Spiderman_ into the Spider-Verse(but it's lofi hiphop) ~ Sunflower ft @ShimuLoFi.mp3"
           }
       ]
+    },
+    "jogos-de-exploracao": {
+      id: "jogos-de-exploracao",
+      title: "Jogos de Exploração",
+      image: "/exploration.jpg",
+      description: "Baseado em seus últimos jogos de exploração jogados.",
+      type: "exploração",
+      tracks: [
+          {
+          id: 1,
+          title: "The Witcher 3: Wild Hunt - Sword of Destiny - Main Theme",
+          artist: "Marcin Przybyłowicz and Percival Schuttenbach",
+          duration: "1:30",
+          url: "/musics/The Witcher 3_ Wild Hunt OST - Sword of Destiny - Main Theme.mp3"
+          },
+          {
+          id: 2,
+          title: "Shadow of the Colossus - To the Ancient Land",
+          artist: "Kō Ōtani",
+          duration: "3:32",
+          url: "/musics/Shadow of the Colossus Soundtrack - To the Ancient Land (Intro music).mp3"
+          }
+      ]
+    },
+    "jogos-de-heroi": {
+      id: "jogos-de-heroi",
+      title: "Jogos de Herói",
+      image: "/avengers.jpg",
+      description: "Baseado em seus últimos jogos de heróis jogados.",
+      type: "heróis",
+      tracks: [
+          {
+          id: 1,
+          title: "Batman Arkham Knight (Main Theme)",
+          artist: "Warner Bros",
+          duration: "2:23",
+          url: "/musics/Batman_ Arkham Knight Soundtrack - Main Theme.mp3"
+          },
+          {
+          id: 2,
+          title: "Batman Arkham City (Main Theme)",
+          artist: "Warner Bros",
+          duration: "2:47",
+          url: "/musics/Batman Arkham City Soundtrack - Main Theme (Track #1).mp3"
+          }
+      ]
+    },
+    "assassins-creed-collection": {
+      id: "assassins-creed-collection",
+      title: "Coleção Assassin's Creed",
+      image: "/assasins.jpg",
+      description: "Baseado em seus últimos jogos da saga Assassin's Creed jogados.",
+      type: "aventura",
+      tracks: [
+          {
+          id: 1,
+          title: "Assassin's Creed IV: Black Flag (Main Theme)",
+          artist: "Ubisoft",
+          duration: "1:02",
+          url: "/musics/(4K, 320kbps) Assassin's Creed Black Flag Theme Epic Version (PS4_XboxOne).mp3"
+          }
+      ]
+    },
+    "souls-like": {
+      id: "souls-like",
+      title: "Souls Like",
+      image: "/souls.jpg",
+      description: "Baseado em seus últimos jogos Souls Like jogados.",
+      type: "aventura",
+      tracks: [
+          {
+          id: 1,
+          title: "Dark Souls 3 - Main Theme",
+          artist: "FromSoftware",
+          duration: "2:45",
+          url: "/musics/Dark Souls III OST 1 - Main Theme.mp3"
+          }
+      ]
     }
 };

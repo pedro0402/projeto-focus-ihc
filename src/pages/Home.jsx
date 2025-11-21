@@ -11,13 +11,13 @@ function Home() {
     const [currentIndex, setCurrentIndex] = useState(0);
 
     const favoriteCards = [
-        { title: "Curtidos", color: "bg-green-500" },
-        { title: "Clássicos 8-bit", image: "/8bit.jpeg" },
-        { title: "MODO: FOCO", image: "/foco.gif" },
-        { title: "Chefões Lendários", image: "/bowser.jpeg" },
-        { title: "It's GOW time!", image: "/god-of-war.jpg" },
-        { title: "NÃO CHORA NEWBIE", image: "/newbie.jpg" },
-        { title: "METAL SLUG PLAYLIST", image: "/metal.jpg" },
+        { title: "Curtidos", color: "bg-green-500", path: "/curtidos" },
+        { title: "Clássicos 8-bit", image: "/8bit.jpeg", path: "/game/classicos-8-bit" },
+        { title: "MODO: FOCO", image: "/foco.gif", path: "/game/modo-foco"},
+        { title: "Chefões Lendários", image: "/bowser.jpeg", path: "/game/chefoes-lendarios" },
+        { title: "It's GOW time!", image: "/god-of-war.jpg" , path: "/game/its-gow-time"},
+        { title: "NÃO CHORA NEWBIE", image: "/newbie.jpg" , path: "/game/nao-chora-newbie"},
+        { title: "FIFA 14 NOSTALGIA", image: "/fifa14.jpg" , path: "/game/fifa-14"},
         { title: "LOFI", image: "/lofi.jpg" }
     ];
 
@@ -75,39 +75,31 @@ function Home() {
 
 
 
-       
-        <div className="grid grid-cols-4 gap-4 mb-8">
-        {favoriteCards.map((card, idx) => (
-            idx === 0 ? (
-            <LinkButton 
-                key={idx}
-                to={`${slugify(card.title.toLowerCase().replace(/\s+/g, "-"))}`}
-                className="block"
-            >
-                <div className="flex items-center gap-4 bg-gradient-to-r from-blue-950 to-blue-900 rounded-lg overflow-hidden max-w-2xl hover:scale-105 transition-transform cursor-pointer shadow-lg">
-                <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-green-500 flex items-center justify-center flex-shrink-0">
-                    <GiElfHelmet className="w-6 h-6 text-white" />
+                    
+                <div className="grid grid-cols-4 gap-4 mb-8">
+                {favoriteCards.map((card, idx) => (
+                    <LinkButton 
+                    key={idx}
+                    to={card.path}
+                    className="block"
+                    >
+                    <div className="flex items-center gap-4 bg-gradient-to-r from-blue-950 to-blue-900 rounded-lg overflow-hidden max-w-2xl hover:scale-105 transition-transform cursor-pointer shadow-lg">
+                        {card.image ? (
+                        <img 
+                            src={card.image} 
+                            alt={card.title} 
+                            className="w-11 h-17 object-cover flex-shrink-0"
+                        />
+                        ) : (
+                        <div className="w-11 h-17 bg-gradient-to-br from-blue-500 to-green-500 flex items-center justify-center flex-shrink-0">
+                            <GiElfHelmet className="w-6 h-6 text-white" />
+                        </div>
+                        )}
+                        <span className="text-white font-semibold text-sm">{card.title}</span>
+                    </div>
+                    </LinkButton>
+                ))}
                 </div>
-                <span className="text-white font-semibold text-sm">{card.title}</span>
-                </div>
-            </LinkButton>
-            ) : (
-            <LinkButton 
-                key={idx}
-                to={`${slugify(card.title.toLowerCase().replace(/\s+/g, "-"))}`}
-                className="block"
-            >
-                <div 
-                    key={idx} 
-                    className="flex items-center gap-4 bg-gradient-to-r from-blue-950 to-blue-900 rounded-lg overflow-hidden max-w-2xl hover:scale-105 transition-transform cursor-pointer shadow-lg"
-                >
-                    <img src={card.image} alt={card.title} className="w-12 h-12 bg-white flex items-center justify-center flex-shrink-0"/>
-                    <span className="text-white font-semibold text-sm">{card.title}</span>
-                </div>
-            </LinkButton>
-            )
-        ))}
-        </div>
 
 
                 <div className="relative w-full h-[360px] overflow-visible rounded-xl">

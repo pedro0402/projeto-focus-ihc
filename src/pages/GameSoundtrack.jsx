@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { gamesData } from "../data/gamesData";
+import { gamesData } from "../data/MostViewedSoundtrackData";
 import { useState, useEffect } from "react";
 import { usePlayer } from "../context/PlayerContext";
 

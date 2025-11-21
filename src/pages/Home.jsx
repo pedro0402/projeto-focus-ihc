@@ -3,7 +3,7 @@ import { AiOutlineAim } from "react-icons/ai";
 import { GiElfHelmet } from "react-icons/gi";
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import LinkButton from "../layouts/LinkButton";
-import { gamesData } from "../data/gamesData";
+import { gamesData } from "../data/MostViewedSoundtrackData";
 import { Link } from "react-router-dom";
 
 function Home() {
@@ -28,15 +28,6 @@ function Home() {
         { title: "Assassin's Creed Collection", image: "/assasins.jpg" },
         { title: "Souls Like", image: "/souls.jpg" },
         { title: "Jogos de Tiro", image: "/cod.jpg" }
-    ];
-
-    const mainSoundtracks = [
-        { title: "Red Dead Redemption II", image: "/reddead.jpg" },
-        { title: "Cyberpunk 2077", image: "/cyber.jpg" },
-        { title: "Batman Arkham Knight", image: "/batark.jpg" },
-        { title: "Tony Hawk's Pro Skater 2", image: "/tony.jpg" },
-        { title: "Ghost of Tsushima", image: "/ghost.jpg" },
-        { title: "Expedition 33", image: "/expedition.jpg" }
     ];
 
     useEffect(() => {
@@ -155,7 +146,7 @@ function Home() {
                         Principais Soundtracks do Momento
                     </h2>
                     <div className="flex items-center justify-center gap-4 overflow-x-auto pb-4">
-                        {mainSoundtracks.map((soundtrack, idx) => (
+                        {gamesData.map((soundtrack, idx) => (
                             <LinkButton
                                 key={idx}
                                 to={`/game/${slugify(soundtrack.title.toLowerCase().replace(/\s+/g, "-"))}`}

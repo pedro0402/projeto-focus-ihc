@@ -113,6 +113,10 @@ src/
 
 <img width="1323" height="662" alt="image" src="https://github.com/user-attachments/assets/ec48be2f-c1d7-4186-8d36-674bcf272de8" />
 
+***TELA SOUNDTRACKS***
+
+<img width="1324" height="660" alt="image" src="https://github.com/user-attachments/assets/a87fd96f-d055-4f12-85df-3f45f2618f61" />
+
 
 ## 👨‍💻 Autores
 

@@ -93,15 +93,18 @@ src/
 
 ## 📸 Prints Figma
 
-***Tela Inicial***
+
+***TELA INICIAL***
 
 <img width="867" height="462" alt="image" src="https://github.com/user-attachments/assets/ebc74044-79c8-4d00-8923-5f1613fd77a1" />
 
-***Tela Soundtracks***
+
+***TELA SOUNDTRACKS***
 
 <img width="866" height="468" alt="image" src="https://github.com/user-attachments/assets/937f8137-d4be-41ca-97cc-390853591f19" />
 
-***Tela Playlist Soundtracks***
+
+***TELA PLAYLIST SOUNDTRACKS***
 
 <img width="869" height="467" alt="image" src="https://github.com/user-attachments/assets/d35e5a01-4051-476f-b6b6-fca0df3afac2" />
 

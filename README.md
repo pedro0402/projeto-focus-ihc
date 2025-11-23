@@ -93,16 +93,13 @@ src/
 
 ## 📸 Prints Figma
 
-
 ***TELA INICIAL***
 
 <img width="867" height="462" alt="image" src="https://github.com/user-attachments/assets/ebc74044-79c8-4d00-8923-5f1613fd77a1" />
 
-
 ***TELA SOUNDTRACKS***
 
 <img width="866" height="468" alt="image" src="https://github.com/user-attachments/assets/937f8137-d4be-41ca-97cc-390853591f19" />
-
 
 ***TELA PLAYLIST SOUNDTRACKS***
 
@@ -111,6 +108,10 @@ src/
 ---
 
 ## 📸 Prints Projeto
+
+***TELA INICIAL***
+
+<img width="1323" height="662" alt="image" src="https://github.com/user-attachments/assets/ec48be2f-c1d7-4186-8d36-674bcf272de8" />
 
 
 ## 👨‍💻 Autores

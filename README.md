@@ -94,11 +94,16 @@ src/
 ## 📸 Prints Figma
 
 <img width="867" height="462" alt="image" src="https://github.com/user-attachments/assets/ebc74044-79c8-4d00-8923-5f1613fd77a1" />
+<img width="866" height="468" alt="image" src="https://github.com/user-attachments/assets/937f8137-d4be-41ca-97cc-390853591f19" />
+<img width="872" height="471" alt="image" src="https://github.com/user-attachments/assets/9aee76e5-e4bd-4432-bf74-8c5ce699aff2" />
+
+## 📸 Prints Projeto
+
 
 ## 👨‍💻 Autores
 
 Feito por:
-**Pedro Henrique**
-**Lucas Patrício**
-**Lucas Souza**
+**Pedro Henrique**,
+**Lucas Patrício**,
+**Lucas Souza**,
 **Paulo Vieira**

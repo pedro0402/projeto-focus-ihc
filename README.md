@@ -91,8 +91,14 @@ src/
 
 ---
 
-## 👨‍💻 Autor
+## 📸 Prints Figma
 
-Feito com ❤️ por **Pedro** ([@pedro0402](https://github.com/pedro0402)).
+<img width="867" height="462" alt="image" src="https://github.com/user-attachments/assets/ebc74044-79c8-4d00-8923-5f1613fd77a1" />
 
-[![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/pedro-moraes-142884252/)
+## 👨‍💻 Autores
+
+Feito por:
+**Pedro Henrique**
+**Lucas Patrício**
+**Lucas Souza**
+**Paulo Vieira**
